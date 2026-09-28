@@ -1,138 +1,150 @@
-import React from 'react';
-import { ISTIHADHAH_STEPS } from '../../data/haidData';
-import { Sparkles, CheckCircle2, HelpCircle, ShieldAlert, HeartPulse } from 'lucide-react';
+import React, { useState } from 'react';
+import { MUSTAHADHAH_CATEGORIES } from '../../data/haidData';
+import { ShieldCheck, Sparkles, CheckCircle, Info, Stethoscope, Droplets } from 'lucide-react';
 
 export function IstihadhahGuide() {
-  const faqs = [
-    {
-      q: 'Apakah keluarnya flek kecokelatan sebelum tanggal haid dihukumi sebagai darah haid?',
-      a: 'Bila flek tersebut keluar bersambung langsung dengan keluarnya darah haid dan berada dalam rentang minimal 24 jam darah mengalir, maka dihitung sebagai awal haid. Namun jika hanya flek sesaat lalu bersih berhari-hari sebelum haid sebenarnya, maka flek terisolasi tersebut tidak membatalkan shalat (hanya berstatus hadats kecil seperti air kencing).',
-    },
-    {
-      q: 'Apakah cairan keputihan (kuning pucat / putih bening) tergolong najis?',
-      a: 'Menurut Mazhab Syafi\'i, keputihan yang keluar dari bagian luar farji (yang dapat dijangkau saat cebok berjongkok) hukumnya suci zatnya, namun membatalkan wudhu. Jika keputihan keluar dari bagian dalam rahim yang dalam, maka dihukumi najis dan membatalkan wudhu.',
-    },
-    {
-      q: 'Bolehkah seorang wanita mengonsumsi obat penunda haid agar bisa puasa Ramadhan sebulan penuh atau menyelesaikan rangkaian ibadah Haji?',
-      a: 'Hukumnya mubah (boleh) menurut mayoritas ulama kontemporer, dengan syarat obat tersebut aman menurut rekomendasi dokter dan tidak membahayakan kesehatan rahim atau tubuhnya. Shalat, puasa, dan thawaf yang dikerjakannya sah secara syariat.',
-    },
-  ];
+  const [selectedCatId, setSelectedCatId] = useState<string>('mubtadaah_mumayyizah');
+
+  const activeCategory = MUSTAHADHAH_CATEGORIES.find((c) => c.id === selectedCatId)!;
 
   return (
     <div className="space-y-8">
       {/* Intro */}
       <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs">
-        <div className="flex items-center gap-2 text-xs font-semibold text-emerald-800 tracking-wide uppercase">
-          <HeartPulse className="w-4 h-4" />
-          <span>Panduan Praktis Wanita Mustahadhah</span>
+        <div className="flex items-center gap-2 text-xs font-semibold text-sky-800 tracking-wide uppercase">
+          <Stethoscope className="w-4 h-4 text-sky-700" />
+          <span>Pedoman Fiqih Istihadhah (Pendarahan Abnormal)</span>
         </div>
         <h1 className="text-2xl font-bold text-stone-900 font-serif mt-1">
-          Tata Cara Bersuci & Shalat bagi Wanita Istihadhah
+          Kategori Wanita Mustahadhah & Tata Cara Ibadah
         </h1>
         <p className="text-stone-600 text-sm mt-1 max-w-3xl leading-relaxed">
-          Wanita yang mengalami pendarahan istihadhah tetap berstatus suci dan WAJIB mendirikan shalat serta
-          berpuasa. Statusnya disamakan dengan orang yang terus-menerus berhadats (*Da'imul Hadats*).
+          Wanita yang mengalami pendarahan lebih dari 15 hari disebut <strong>Mustahadhah</strong>.
+          Secara hukum syariat, ia tetap dihukumi SUCI sehingga tidak boleh meninggalkan shalat dan puasa.
+          Para ulama merumuskan kaidah sistematis untuk menentukan bagian darah mana yang menjadi haid dan mana yang menjadi istihadhah.
         </p>
       </div>
 
-      {/* 5 Langkah Bersuci Menjelang Shalat Fardhu */}
-      <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs space-y-4">
+      {/* 5 Kategori Mustahadhah */}
+      <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs space-y-6">
         <div>
           <h2 className="text-lg font-bold text-stone-900 font-serif">
-            5 Prosedur Wajib Bersuci Sebelum Shalat Fardhu
+            5 Golongan Wanita yang Mengalami Istihadhah
           </h2>
           <p className="text-xs text-stone-500 mt-0.5">
-            Langkah-langkah ini wajib dilakukan secara berurutan dan bersambung (*muwālah*) setiap kali hendak shalat fardhu:
+            Pilih salah satu kondisi di bawah untuk melihat rumusan hukum dan pembagian hari haidnya:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
-          {ISTIHADHAH_STEPS.map((item) => (
+        <div className="flex flex-wrap gap-2">
+          {MUSTAHADHAH_CATEGORIES.map((cat) => {
+            const isSelected = selectedCatId === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setSelectedCatId(cat.id)}
+                className={`px-3.5 py-2 text-xs font-bold rounded-lg border transition-all ${
+                  isSelected
+                    ? 'bg-sky-700 text-white border-sky-700 shadow-xs'
+                    : 'bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-700'
+                }`}
+              >
+                {cat.name}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Selected Category Box */}
+        <div className="p-5 bg-stone-50 rounded-xl border border-stone-200 space-y-4 text-xs">
+          <div className="flex items-baseline justify-between border-b border-stone-200/80 pb-3">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-sky-800 block">
+                Golongan
+              </span>
+              <h3 className="text-base font-bold text-stone-900 mt-0.5">{activeCategory.name}</h3>
+            </div>
+            <span className="text-sm font-arabic text-stone-600 bg-white px-3 py-1 rounded border border-stone-200">
+              {activeCategory.arabic}
+            </span>
+          </div>
+
+          <div className="space-y-1.5">
+            <strong className="text-stone-900 block font-semibold">Definisi Kondisi:</strong>
+            <p className="text-stone-700 leading-relaxed">{activeCategory.definition}</p>
+          </div>
+
+          <div className="p-4 bg-sky-50 rounded-xl border border-sky-200 space-y-1.5">
+            <strong className="text-sky-950 block font-semibold text-sm">
+              Ketetapan Hukum Syariat:
+            </strong>
+            <p className="text-sky-900 leading-relaxed font-medium">{activeCategory.rule}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Prosedur Shalat bagi Wanita Istihadhah */}
+      <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs space-y-6">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-800">
+            <Droplets className="w-4 h-4" />
+            <span>Tata Cara Bersuci Shalat Da'imul Hadats</span>
+          </div>
+          <h2 className="text-lg font-bold text-stone-900 font-serif mt-1">
+            5 Langkah Tertib Bersuci Sebelum Shalat Fardhu
+          </h2>
+          <p className="text-xs text-stone-500 mt-0.5">
+            Karena darah terus mengalir (da'imul hadats), wanita istihadhah wajib melakukan 5 prosedur ini secara berurutan dan bersegera (tanpa jeda lama):
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
+          {[
+            {
+              step: 1,
+              title: 'Tunggu Masuk Waktu',
+              desc: 'Seluruh proses bersuci (istinja, pembalut, wudhu) WAJIB dilakukan setelah azan / masuknya waktu shalat fardhu.',
+            },
+            {
+              step: 2,
+              title: 'Membasuh Kemaluan',
+              desc: 'Bersihkan dan cuci area kemaluan dari sisa darah najis yang mengalir.',
+            },
+            {
+              step: 3,
+              title: 'Menyumbat & Membalut',
+              desc: 'Sumbat bagian kemaluan dengan kapas/kasa (jika tidak sakit) lalu kenakan pembalut yang rapat agar darah tidak menetes.',
+            },
+            {
+              step: 4,
+              title: 'Berwudhu Khusus',
+              desc: 'Berniat wudhu untuk membolehkan shalat: "Nawaitul wudhu\'a li istibahatis shalaati fardhan lillaahi ta\'aalaa".',
+            },
+            {
+              step: 5,
+              title: 'Segera Shalat',
+              desc: 'Langsung menuju tempat shalat dan mendirikan shalat fardhu tanpa menunda-nunda selain untuk menutup aurat dan iqamah.',
+            },
+          ].map((item) => (
             <div
               key={item.step}
-              className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2 flex flex-col justify-between"
+              className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-2"
             >
-              <div>
-                <span className="w-6 h-6 rounded-md bg-emerald-700 text-white flex items-center justify-center font-bold text-xs mb-2">
-                  {item.step}
-                </span>
-                <h3 className="font-bold text-stone-900 text-sm">{item.title}</h3>
-                <p className="text-stone-600 leading-relaxed mt-1">{item.desc}</p>
+              <div className="w-7 h-7 rounded-lg bg-sky-700 text-white flex items-center justify-center font-bold text-xs">
+                {item.step}
               </div>
+              <h3 className="font-bold text-stone-900">{item.title}</h3>
+              <p className="text-stone-600 leading-relaxed text-[11px]">{item.desc}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Tabel Komparasi: Haid vs Istihadhah */}
-      <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs space-y-4">
-        <h2 className="text-lg font-bold text-stone-900 font-serif">
-          Tabel Perbandingan: Darah Haid vs Darah Istihadhah
-        </h2>
-
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left border-collapse">
-            <thead>
-              <tr className="bg-stone-100 text-stone-700 border-b border-stone-200">
-                <th className="p-3 font-bold">Aspek Pembeda</th>
-                <th className="p-3 font-bold text-rose-900">Darah Haid (Menstruasi)</th>
-                <th className="p-3 font-bold text-amber-900">Darah Istihadhah (Penyakit)</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-stone-200">
-              <tr>
-                <td className="p-3 font-semibold text-stone-800">Sebab & Asal Darah</td>
-                <td className="p-3 text-stone-700">Darah alami dari rongga rahim bagian dalam</td>
-                <td className="p-3 text-stone-700">Pecahnya pembuluh darah rahim ('Adzil)</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold text-stone-800">Warna & Bau</td>
-                <td className="p-3 text-stone-700">Hitam/merah tua, kental, aroma menyengat</td>
-                <td className="p-3 text-stone-700">Merah segar, encer, aroma darah luka biasa</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold text-stone-800">Ibadah Shalat</td>
-                <td className="p-3 text-rose-800 font-bold">Haram (Tidak Sah & Tidak Diqadha)</td>
-                <td className="p-3 text-emerald-800 font-bold">Wajib Dikerjakan</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold text-stone-800">Ibadah Puasa</td>
-                <td className="p-3 text-rose-800 font-bold">Haram (Wajib Diqadha di Luar Ramadhan)</td>
-                <td className="p-3 text-emerald-800 font-bold">Wajib Berpuasa</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold text-stone-800">Hubungan Suami-Istri</td>
-                <td className="p-3 text-rose-800 font-bold">Haram secara Ijma'</td>
-                <td className="p-3 text-emerald-800 font-bold">Boleh menurut Jumhur Ulama</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold text-stone-800">Mandi Wajib</td>
-                <td className="p-3 text-stone-700">Wajib mandi besar setelah darah bersih</td>
-                <td className="p-3 text-stone-700">Hanya cukup berwudhu tiap shalat fardhu</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Tanya Jawab Seputar Masalah Haid */}
-      <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs space-y-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800">
-          <HelpCircle className="w-4 h-4" />
-          <span>F.A.Q Seputar Fiqih Darah Kewanitaan</span>
-        </div>
-        <div className="space-y-3 text-xs">
-          {faqs.map((faq, idx) => (
-            <div key={idx} className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-1.5">
-              <strong className="text-stone-900 block font-semibold text-sm">
-                Q: {faq.q}
-              </strong>
-              <p className="text-stone-700 leading-relaxed">
-                <span className="font-semibold text-emerald-800">Jawaban: </span>
-                {faq.a}
-              </p>
-            </div>
-          ))}
+        <div className="p-3 bg-amber-50 rounded-lg border border-amber-200 text-amber-900 text-xs flex items-start gap-2">
+          <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+          <span>
+            <strong>Catatan Penting:</strong> Satu wudhu bagi wanita istihadhah hanya sah untuk <strong>satu kali shalat fardhu</strong>. Namun ia bebas mengerjakan shalat sunnah sebanyak-banyaknya selama waktu shalat tersebut masih berlangsung.
+          </span>
         </div>
       </div>
     </div>

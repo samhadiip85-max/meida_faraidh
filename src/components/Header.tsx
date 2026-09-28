@@ -1,7 +1,7 @@
 import React from 'react';
-import { BookOpen, HeartHandshake, Droplets, HeartPulse } from 'lucide-react';
+import { BookOpen, HeartHandshake, Droplets, HeartPulse, Clock } from 'lucide-react';
 
-export type MainChapter = 'thaharah' | 'haid' | 'munakahat' | 'faraidh';
+export type MainChapter = 'thaharah' | 'haid' | 'shalat' | 'munakahat' | 'faraidh';
 
 export interface HeaderProps {
   currentChapter: MainChapter;
@@ -26,10 +26,17 @@ export function Header({
   ];
 
   const haidTabs = [
-    { id: 'haid-overview', label: 'Karakteristik & Larangan' },
-    { id: 'blood-simulator', label: 'Simulator Haid vs Istihadhah' },
-    { id: 'istihadhah-guide', label: 'Panduan Mustahadhah & FAQ' },
+    { id: 'haid-overview', label: 'Haid, Nifas & Warna Darah' },
+    { id: 'blood-simulator', label: 'Kalkulator Siklus Darah' },
+    { id: 'istihadhah', label: 'Pedoman Istihadhah' },
     { id: 'haid-quiz', label: 'Latihan Soal BAB 2' },
+  ];
+
+  const shalatTabs = [
+    { id: 'shalat-overview', label: 'Syarat, Rukun & Pembatal' },
+    { id: 'sunnah-sahwi', label: 'Sunnah Ab\'adh & Sahwi' },
+    { id: 'jamak-qashar', label: 'Kalkulator Jamak & Qashar' },
+    { id: 'shalat-quiz', label: 'Latihan Soal BAB 3' },
   ];
 
   const munakahatTabs = [
@@ -58,6 +65,9 @@ export function Header({
   } else if (currentChapter === 'haid') {
     currentTabs = haidTabs;
     chapterBadge = 'Modul BAB 2 (Haid & Nifas):';
+  } else if (currentChapter === 'shalat') {
+    currentTabs = shalatTabs;
+    chapterBadge = 'Modul BAB 3 (Shalat):';
   } else if (currentChapter === 'munakahat') {
     currentTabs = munakahatTabs;
     chapterBadge = 'Modul BAB 19 (Munakahat):';
@@ -90,8 +100,8 @@ export function Header({
           </button>
         </div>
 
-        {/* BAB Switcher (Chapter Switcher with 4 BABs) */}
-        <div className="flex items-center p-1 bg-stone-100 rounded-lg border border-stone-200 overflow-x-auto max-w-full scrollbar-none">
+        {/* BAB Switcher (Chapter Switcher with 5 BABs) */}
+        <div className="flex items-center p-1 bg-stone-100 rounded-lg border border-stone-200 overflow-x-auto max-w-full">
           {/* BAB 1 */}
           <button
             type="button"
@@ -99,7 +109,7 @@ export function Header({
               onSelectChapter('thaharah');
               onSelectTab('thaharah-overview');
             }}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
               currentChapter === 'thaharah'
                 ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
                 : 'text-stone-600 hover:text-stone-900'
@@ -116,14 +126,31 @@ export function Header({
               onSelectChapter('haid');
               onSelectTab('haid-overview');
             }}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
               currentChapter === 'haid'
+                ? 'bg-white text-rose-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <HeartPulse className="w-3.5 h-3.5 text-rose-700" />
+            <span>BAB 2: Haid</span>
+          </button>
+
+          {/* BAB 3 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('shalat');
+              onSelectTab('shalat-overview');
+            }}
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'shalat'
                 ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <HeartPulse className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 2: Haid & Nifas</span>
+            <Clock className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 3: Shalat</span>
           </button>
 
           {/* BAB 19 */}
@@ -133,7 +160,7 @@ export function Header({
               onSelectChapter('munakahat');
               onSelectTab('overview');
             }}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
               currentChapter === 'munakahat'
                 ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
                 : 'text-stone-600 hover:text-stone-900'
@@ -150,7 +177,7 @@ export function Header({
               onSelectChapter('faraidh');
               onSelectTab('calculator');
             }}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
               currentChapter === 'faraidh'
                 ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
                 : 'text-stone-600 hover:text-stone-900'
@@ -176,7 +203,9 @@ export function Header({
               if (currentChapter === 'thaharah') {
                 onSelectTab('thaharah-overview');
               } else if (currentChapter === 'haid') {
-                onSelectTab('blood-simulator');
+                onSelectTab('haid-overview');
+              } else if (currentChapter === 'shalat') {
+                onSelectTab('shalat-overview');
               } else if (currentChapter === 'munakahat') {
                 onSelectTab('overview');
               } else {

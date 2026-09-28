@@ -7,11 +7,17 @@ import { NajisGuide } from './components/thaharah/NajisGuide';
 import { WudhuGhuslGuide } from './components/thaharah/WudhuGhuslGuide';
 import { ThaharahQuiz } from './components/thaharah/ThaharahQuiz';
 
-// BAB 2: Haid & Nifas Components
+// BAB 2: Haid, Istihadhah, & Nifas Components
 import { HaidOverview } from './components/haid/HaidOverview';
 import { BloodSimulator } from './components/haid/BloodSimulator';
 import { IstihadhahGuide } from './components/haid/IstihadhahGuide';
 import { HaidQuiz } from './components/haid/HaidQuiz';
+
+// BAB 3: Shalat Components
+import { ShalatOverview } from './components/shalat/ShalatOverview';
+import { AbadhHaiahGuide } from './components/shalat/AbadhHaiahGuide';
+import { JamakQasharCalculator } from './components/shalat/JamakQasharCalculator';
+import { ShalatQuiz } from './components/shalat/ShalatQuiz';
 
 // BAB 19: Munakahat Components
 import { MunakahatOverview } from './components/munakahat/MunakahatOverview';
@@ -31,8 +37,8 @@ import { TajhizGuideTab } from './components/TajhizGuideTab';
 import { DeceasedGender, HeirRole } from './types/faraidh';
 
 export default function App() {
-  const [currentChapter, setCurrentChapter] = useState<MainChapter>('haid');
-  const [activeTab, setActiveTab] = useState<string>('haid-overview');
+  const [currentChapter, setCurrentChapter] = useState<MainChapter>('shalat');
+  const [activeTab, setActiveTab] = useState<string>('shalat-overview');
   const [calculatorKey, setCalculatorKey] = useState<number>(0);
   const [initialDeceasedGender, setInitialDeceasedGender] = useState<DeceasedGender>('male');
   const [initialPresetHeirs, setInitialPresetHeirs] = useState<
@@ -59,6 +65,8 @@ export default function App() {
       setActiveTab('thaharah-overview');
     } else if (chapter === 'haid') {
       setActiveTab('haid-overview');
+    } else if (chapter === 'shalat') {
+      setActiveTab('shalat-overview');
     } else if (chapter === 'munakahat') {
       setActiveTab('overview');
     } else {
@@ -87,7 +95,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 font-sans">
-      {/* 4-Chapter Header Navigation */}
+      {/* 3-zone Header Navigation with 5-Chapter Switcher */}
       <Header
         currentChapter={currentChapter}
         onSelectChapter={handleSelectChapter}
@@ -120,8 +128,18 @@ export default function App() {
           <>
             {activeTab === 'haid-overview' && <HaidOverview />}
             {activeTab === 'blood-simulator' && <BloodSimulator />}
-            {activeTab === 'istihadhah-guide' && <IstihadhahGuide />}
+            {activeTab === 'istihadhah' && <IstihadhahGuide />}
             {activeTab === 'haid-quiz' && <HaidQuiz />}
+          </>
+        )}
+
+        {/* BAB 3: SHALAT (TIANG AGAMA) */}
+        {currentChapter === 'shalat' && (
+          <>
+            {activeTab === 'shalat-overview' && <ShalatOverview />}
+            {activeTab === 'sunnah-sahwi' && <AbadhHaiahGuide />}
+            {activeTab === 'jamak-qashar' && <JamakQasharCalculator />}
+            {activeTab === 'shalat-quiz' && <ShalatQuiz />}
           </>
         )}
 
@@ -175,6 +193,7 @@ export default function App() {
               <span>
                 {currentChapter === 'thaharah' && 'BAB 1: Fiqih Thaharah (Bersuci dalam Islam)'}
                 {currentChapter === 'haid' && 'BAB 2: Fiqih Haid, Istihadhah & Nifas'}
+                {currentChapter === 'shalat' && 'BAB 3: Fiqih Shalat (Tiang Agama Islam)'}
                 {currentChapter === 'munakahat' && 'BAB 19: Fiqih Munakahat (Pernikahan dalam Islam)'}
                 {currentChapter === 'faraidh' && 'BAB 21: Fiqih Mawarith (Kewarisan & Hitungan Waris)'}
               </span>

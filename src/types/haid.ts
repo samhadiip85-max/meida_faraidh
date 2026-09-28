@@ -1,39 +1,34 @@
-export type BloodType = 'haid' | 'nifas' | 'istihadhah';
+export type BloodType = 'haid' | 'istihadhah' | 'nifas';
 
-export interface BloodRuleDetail {
-  type: BloodType;
-  title: string;
-  arabicTerm: string;
-  definition: string;
-  minDuration: string;
-  maxDuration: string;
-  habitualDuration: string;
-  legalStatus: string;
-  colorCharacteristics: string[];
-  dalil: string;
+export type BloodColor =
+  | 'aswad'   // Hitam (Paling Kuat)
+  | 'ahmar'   // Merah
+  | 'asyqar'  // Coklat kemerahan
+  | 'ashfar'  // Kuning
+  | 'kadir';  // Keruh (Paling Lemah)
+
+export interface BloodColorDetail {
+  id: BloodColor;
+  nameIndo: string;
+  nameArabic: string;
+  powerRank: number; // 1 = paling kuat, 5 = paling lemah
+  description: string;
 }
 
-export interface HaidProhibition {
+export interface ForbiddenAct {
   id: string;
-  title: string;
-  desc: string;
-  qadhaRule: 'wajib_qadha' | 'tidak_qadha' | 'bukan_ibadah';
-  qadhaText: string;
+  name: string;
+  nameArabic: string;
+  description: string;
+  qadhaRequired: boolean; // misal puasa wajib qadha, shalat tidak qadha
   dalil: string;
 }
 
-export type MustahadhahCategory =
-  | 'mubtadaah_mumayyizah'
-  | 'mubtadaah_ghairu_mumayyizah'
-  | 'mutadah_mumayyizah'
-  | 'mutadah_ghairu_mumayyizah';
-
-export interface BloodSimulationResult {
-  totalDays: number;
-  haidDays: number;
-  istihadhahDays: number;
-  categoryName: string;
+export interface HaidQuizQuestion {
+  id: string;
+  question: string;
+  options: { id: string; text: string }[];
+  correctOptionId: string;
   explanation: string;
-  prayerObligation: string;
-  mandiTime: string;
+  dalil: string;
 }
