@@ -1,0 +1,6 @@
+{
+  "name": "FaraidhEdu - Media Pembelajaran & Kalkulator Fiqih Waris",
+  "description": "Media pembelajaran interaktif fiqih mawarith dan faraidh lengkap dengan simulasi hitungan warisan, tabel ashabul furudh, pohon hijab, kasus khusus, dan latihan soal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
