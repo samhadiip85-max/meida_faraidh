@@ -18,7 +18,7 @@ export function MunakahatOverview({ onGoToFaraidh }: MunakahatOverviewProps) {
       <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs">
         <div className="flex items-center gap-2 text-xs font-semibold text-emerald-800 tracking-wide uppercase">
           <Heart className="w-4 h-4 text-emerald-700" />
-          <span>BAB II: Fiqih Munakahat (Pernikahan dalam Islam)</span>
+          <span>BAB 19: Fiqih Munakahat (Pernikahan dalam Islam)</span>
         </div>
         <h1 className="text-2xl font-bold text-stone-900 font-serif mt-1">
           Hukum, Rukun & Kaidah Sah Pernikahan
@@ -226,7 +226,7 @@ export function MunakahatOverview({ onGoToFaraidh }: MunakahatOverviewProps) {
               onClick={onGoToFaraidh}
               className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs"
             >
-              <span>Eksplorasi Perhitungan Waris Suami/Istri di BAB I (Faraidh)</span>
+              <span>Eksplorasi Perhitungan Waris Suami/Istri di BAB 21 (Faraidh)</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

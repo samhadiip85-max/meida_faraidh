@@ -1,7 +1,7 @@
 import React from 'react';
-import { BookOpen, HeartHandshake } from 'lucide-react';
+import { BookOpen, HeartHandshake, Droplets, HeartPulse } from 'lucide-react';
 
-export type MainChapter = 'faraidh' | 'munakahat';
+export type MainChapter = 'thaharah' | 'haid' | 'munakahat' | 'faraidh';
 
 export interface HeaderProps {
   currentChapter: MainChapter;
@@ -18,13 +18,18 @@ export function Header({
   onSelectTab,
   onResetCalculator,
 }: HeaderProps) {
-  const faraidhTabs = [
-    { id: 'calculator', label: 'Kalkulator Waris' },
-    { id: 'theory', label: 'Materi Furudh' },
-    { id: 'hijab-tree', label: 'Pohon Hijab' },
-    { id: 'special-cases', label: 'Kasus Khusus' },
-    { id: 'quiz', label: 'Latihan Soal' },
-    { id: 'tajhiz', label: 'Panduan Tajhiz' },
+  const thaharahTabs = [
+    { id: 'thaharah-overview', label: 'Air & Dua Qullah' },
+    { id: 'najis', label: 'Macam-Macam Najis' },
+    { id: 'wudhu-ghusl', label: 'Wudhu, Mandi & Tayammum' },
+    { id: 'thaharah-quiz', label: 'Latihan Soal BAB 1' },
+  ];
+
+  const haidTabs = [
+    { id: 'haid-overview', label: 'Karakteristik & Larangan' },
+    { id: 'blood-simulator', label: 'Simulator Haid vs Istihadhah' },
+    { id: 'istihadhah-guide', label: 'Panduan Mustahadhah & FAQ' },
+    { id: 'haid-quiz', label: 'Latihan Soal BAB 2' },
   ];
 
   const munakahatTabs = [
@@ -32,10 +37,31 @@ export function Header({
     { id: 'mahram', label: 'Peta Mahram' },
     { id: 'wali', label: 'Urutan Wali & Saksi' },
     { id: 'iddah', label: 'Kalkulator Iddah' },
-    { id: 'munakahat-quiz', label: 'Latihan Soal' },
+    { id: 'munakahat-quiz', label: 'Latihan Soal BAB 19' },
   ];
 
-  const currentTabs = currentChapter === 'faraidh' ? faraidhTabs : munakahatTabs;
+  const faraidhTabs = [
+    { id: 'calculator', label: 'Kalkulator Waris' },
+    { id: 'theory', label: 'Materi Furudh' },
+    { id: 'hijab-tree', label: 'Pohon Hijab' },
+    { id: 'special-cases', label: 'Kasus Khusus' },
+    { id: 'quiz', label: 'Latihan Soal BAB 21' },
+    { id: 'tajhiz', label: 'Panduan Tajhiz' },
+  ];
+
+  let currentTabs = faraidhTabs;
+  let chapterBadge = 'Modul BAB 21 (Faraidh):';
+
+  if (currentChapter === 'thaharah') {
+    currentTabs = thaharahTabs;
+    chapterBadge = 'Modul BAB 1 (Thaharah):';
+  } else if (currentChapter === 'haid') {
+    currentTabs = haidTabs;
+    chapterBadge = 'Modul BAB 2 (Haid & Nifas):';
+  } else if (currentChapter === 'munakahat') {
+    currentTabs = munakahatTabs;
+    chapterBadge = 'Modul BAB 19 (Munakahat):';
+  }
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200">
@@ -45,8 +71,8 @@ export function Header({
         <div className="flex items-center gap-3">
           <button
             onClick={() => {
-              onSelectChapter('faraidh');
-              onSelectTab('calculator');
+              onSelectChapter('thaharah');
+              onSelectTab('thaharah-overview');
             }}
             className="text-left group flex items-center gap-2.5 focus:outline-none"
           >
@@ -64,38 +90,74 @@ export function Header({
           </button>
         </div>
 
-        {/* BAB Switcher (Chapter Switcher) */}
-        <div className="flex items-center p-1 bg-stone-100 rounded-lg border border-stone-200">
+        {/* BAB Switcher (Chapter Switcher with 4 BABs) */}
+        <div className="flex items-center p-1 bg-stone-100 rounded-lg border border-stone-200 overflow-x-auto max-w-full scrollbar-none">
+          {/* BAB 1 */}
           <button
             type="button"
             onClick={() => {
-              onSelectChapter('faraidh');
-              onSelectTab('calculator');
+              onSelectChapter('thaharah');
+              onSelectTab('thaharah-overview');
             }}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 ${
-              currentChapter === 'faraidh'
+            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'thaharah'
                 ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB I: Faraidh (Waris)</span>
+            <Droplets className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 1: Thaharah</span>
           </button>
 
+          {/* BAB 2 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('haid');
+              onSelectTab('haid-overview');
+            }}
+            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'haid'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <HeartPulse className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 2: Haid & Nifas</span>
+          </button>
+
+          {/* BAB 19 */}
           <button
             type="button"
             onClick={() => {
               onSelectChapter('munakahat');
               onSelectTab('overview');
             }}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
               currentChapter === 'munakahat'
                 ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
             <HeartHandshake className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB II: Munakahat (Nikah)</span>
+            <span>BAB 19: Munakahat</span>
+          </button>
+
+          {/* BAB 21 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('faraidh');
+              onSelectTab('calculator');
+            }}
+            className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'faraidh'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 21: Faraidh</span>
           </button>
         </div>
 
@@ -111,10 +173,14 @@ export function Header({
           )}
           <button
             onClick={() => {
-              if (currentChapter === 'faraidh') {
-                onSelectTab('calculator');
-              } else {
+              if (currentChapter === 'thaharah') {
+                onSelectTab('thaharah-overview');
+              } else if (currentChapter === 'haid') {
+                onSelectTab('blood-simulator');
+              } else if (currentChapter === 'munakahat') {
                 onSelectTab('overview');
+              } else {
+                onSelectTab('calculator');
               }
             }}
             className="px-3.5 py-1.5 text-xs font-medium text-white bg-emerald-700 rounded-md hover:bg-emerald-800 transition-colors whitespace-nowrap shadow-xs"
@@ -128,7 +194,7 @@ export function Header({
       <div className="bg-stone-50/90 border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center overflow-x-auto py-1.5 gap-1 scrollbar-none">
           <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider mr-2 shrink-0">
-            {currentChapter === 'faraidh' ? 'Modul Faraidh:' : 'Modul Pernikahan:'}
+            {chapterBadge}
           </span>
           {currentTabs.map((item) => {
             const isActive = activeTab === item.id;

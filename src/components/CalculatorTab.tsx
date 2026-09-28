@@ -427,11 +427,11 @@ export function CalculatorTab({
                   Pasangan Hidup (Hubungan Nikah)
                 </span>
                 <span className="text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  Sebab Nikah Sah (BAB II)
+                  Sebab Nikah Sah (BAB 19)
                 </span>
               </div>
               <div className="text-[11px] text-stone-500 bg-stone-50/80 p-2 rounded-lg border border-stone-200/60 leading-relaxed">
-                💍 Suami & Istri mewarisi karena akad pernikahan sah (Asbabul Irtsi). Rukun & syarat sah perkawinan diatur dalam <strong>BAB II: Munakahat</strong>.
+                💍 Suami & Istri mewarisi karena akad pernikahan sah (Asbabul Irtsi). Rukun & syarat sah perkawinan diatur dalam <strong>BAB 19: Munakahat</strong>.
               </div>
               {deceasedGender === 'female' && (
                 <div className="flex items-center justify-between p-2 rounded-lg bg-stone-50 border border-stone-100">

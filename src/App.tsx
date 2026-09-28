@@ -1,24 +1,38 @@
 import React, { useState } from 'react';
 import { Header, MainChapter } from './components/Header';
-// BAB I: Faraidh Components
-import { CalculatorTab } from './components/CalculatorTab';
-import { TheoryTab } from './components/TheoryTab';
-import { HijabTreeTab } from './components/HijabTreeTab';
-import { SpecialCasesTab } from './components/SpecialCasesTab';
-import { QuizTab } from './components/QuizTab';
-import { TajhizGuideTab } from './components/TajhizGuideTab';
-// BAB II: Munakahat Components
+
+// BAB 1: Thaharah Components
+import { ThaharahOverview } from './components/thaharah/ThaharahOverview';
+import { NajisGuide } from './components/thaharah/NajisGuide';
+import { WudhuGhuslGuide } from './components/thaharah/WudhuGhuslGuide';
+import { ThaharahQuiz } from './components/thaharah/ThaharahQuiz';
+
+// BAB 2: Haid & Nifas Components
+import { HaidOverview } from './components/haid/HaidOverview';
+import { BloodSimulator } from './components/haid/BloodSimulator';
+import { IstihadhahGuide } from './components/haid/IstihadhahGuide';
+import { HaidQuiz } from './components/haid/HaidQuiz';
+
+// BAB 19: Munakahat Components
 import { MunakahatOverview } from './components/munakahat/MunakahatOverview';
 import { MahramChecker } from './components/munakahat/MahramChecker';
 import { WaliNikahTree } from './components/munakahat/WaliNikahTree';
 import { IddahCalculator } from './components/munakahat/IddahCalculator';
 import { MunakahatQuiz } from './components/munakahat/MunakahatQuiz';
 
+// BAB 21: Faraidh Components
+import { CalculatorTab } from './components/CalculatorTab';
+import { TheoryTab } from './components/TheoryTab';
+import { HijabTreeTab } from './components/HijabTreeTab';
+import { SpecialCasesTab } from './components/SpecialCasesTab';
+import { QuizTab } from './components/QuizTab';
+import { TajhizGuideTab } from './components/TajhizGuideTab';
+
 import { DeceasedGender, HeirRole } from './types/faraidh';
 
 export default function App() {
-  const [currentChapter, setCurrentChapter] = useState<MainChapter>('faraidh');
-  const [activeTab, setActiveTab] = useState<string>('calculator');
+  const [currentChapter, setCurrentChapter] = useState<MainChapter>('haid');
+  const [activeTab, setActiveTab] = useState<string>('haid-overview');
   const [calculatorKey, setCalculatorKey] = useState<number>(0);
   const [initialDeceasedGender, setInitialDeceasedGender] = useState<DeceasedGender>('male');
   const [initialPresetHeirs, setInitialPresetHeirs] = useState<
@@ -41,10 +55,14 @@ export default function App() {
 
   const handleSelectChapter = (chapter: MainChapter) => {
     setCurrentChapter(chapter);
-    if (chapter === 'faraidh') {
-      setActiveTab('calculator');
-    } else {
+    if (chapter === 'thaharah') {
+      setActiveTab('thaharah-overview');
+    } else if (chapter === 'haid') {
+      setActiveTab('haid-overview');
+    } else if (chapter === 'munakahat') {
       setActiveTab('overview');
+    } else {
+      setActiveTab('calculator');
     }
     safeScrollToTop();
   };
@@ -69,7 +87,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 font-sans">
-      {/* 3-zone Header Navigation with Chapter Switcher */}
+      {/* 4-Chapter Header Navigation */}
       <Header
         currentChapter={currentChapter}
         onSelectChapter={handleSelectChapter}
@@ -87,32 +105,27 @@ export default function App() {
 
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        {/* BAB I: FARAIDH (WARIS) */}
-        {currentChapter === 'faraidh' && (
+        {/* BAB 1: THAHARAH (BERSUCI) */}
+        {currentChapter === 'thaharah' && (
           <>
-            {activeTab === 'calculator' && (
-              <CalculatorTab
-                key={calculatorKey}
-                initialDeceasedGender={initialDeceasedGender}
-                initialPresetHeirs={initialPresetHeirs}
-              />
-            )}
-
-            {activeTab === 'theory' && <TheoryTab />}
-
-            {activeTab === 'hijab-tree' && <HijabTreeTab />}
-
-            {activeTab === 'special-cases' && (
-              <SpecialCasesTab onLoadCaseToCalculator={handleLoadCaseToCalculator} />
-            )}
-
-            {activeTab === 'quiz' && <QuizTab />}
-
-            {activeTab === 'tajhiz' && <TajhizGuideTab />}
+            {activeTab === 'thaharah-overview' && <ThaharahOverview />}
+            {activeTab === 'najis' && <NajisGuide />}
+            {activeTab === 'wudhu-ghusl' && <WudhuGhuslGuide />}
+            {activeTab === 'thaharah-quiz' && <ThaharahQuiz />}
           </>
         )}
 
-        {/* BAB II: MUNAKAHAT (PERNIKAHAN) */}
+        {/* BAB 2: HAID, ISTIHADHAH & NIFAS */}
+        {currentChapter === 'haid' && (
+          <>
+            {activeTab === 'haid-overview' && <HaidOverview />}
+            {activeTab === 'blood-simulator' && <BloodSimulator />}
+            {activeTab === 'istihadhah-guide' && <IstihadhahGuide />}
+            {activeTab === 'haid-quiz' && <HaidQuiz />}
+          </>
+        )}
+
+        {/* BAB 19: MUNAKAHAT (PERNIKAHAN) */}
         {currentChapter === 'munakahat' && (
           <>
             {activeTab === 'overview' && (
@@ -124,14 +137,30 @@ export default function App() {
                 }}
               />
             )}
-
             {activeTab === 'mahram' && <MahramChecker />}
-
             {activeTab === 'wali' && <WaliNikahTree />}
-
             {activeTab === 'iddah' && <IddahCalculator />}
-
             {activeTab === 'munakahat-quiz' && <MunakahatQuiz />}
+          </>
+        )}
+
+        {/* BAB 21: FARAIDH (WARIS) */}
+        {currentChapter === 'faraidh' && (
+          <>
+            {activeTab === 'calculator' && (
+              <CalculatorTab
+                key={calculatorKey}
+                initialDeceasedGender={initialDeceasedGender}
+                initialPresetHeirs={initialPresetHeirs}
+              />
+            )}
+            {activeTab === 'theory' && <TheoryTab />}
+            {activeTab === 'hijab-tree' && <HijabTreeTab />}
+            {activeTab === 'special-cases' && (
+              <SpecialCasesTab onLoadCaseToCalculator={handleLoadCaseToCalculator} />
+            )}
+            {activeTab === 'quiz' && <QuizTab />}
+            {activeTab === 'tajhiz' && <TajhizGuideTab />}
           </>
         )}
       </main>
@@ -144,9 +173,10 @@ export default function App() {
               <span className="font-serif font-bold text-stone-800 text-sm">FiqihEdu</span>
               <span>·</span>
               <span>
-                {currentChapter === 'faraidh'
-                  ? 'BAB I: Fiqih Mawarith & Hitungan Waris'
-                  : 'BAB II: Fiqih Munakahat & Hukum Keluarga Islam'}
+                {currentChapter === 'thaharah' && 'BAB 1: Fiqih Thaharah (Bersuci dalam Islam)'}
+                {currentChapter === 'haid' && 'BAB 2: Fiqih Haid, Istihadhah & Nifas'}
+                {currentChapter === 'munakahat' && 'BAB 19: Fiqih Munakahat (Pernikahan dalam Islam)'}
+                {currentChapter === 'faraidh' && 'BAB 21: Fiqih Mawarith (Kewarisan & Hitungan Waris)'}
               </span>
             </div>
 

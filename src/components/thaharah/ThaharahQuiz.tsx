@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { MUNAKAHAT_QUIZ } from '../../data/munakahatData';
+import { THAHARAH_QUIZ } from '../../data/thaharahData';
 import { HelpCircle, CheckCircle, XCircle, RotateCcw, Award } from 'lucide-react';
 
-export function MunakahatQuiz() {
+export function ThaharahQuiz() {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
-  const activeQuestion = MUNAKAHAT_QUIZ[currentIdx];
+  const activeQuestion = THAHARAH_QUIZ[currentIdx];
 
   const handleSelectOption = (questionId: string, optionId: string) => {
     if (selectedAnswers[questionId]) return;
@@ -16,12 +16,12 @@ export function MunakahatQuiz() {
 
   const calculateScore = () => {
     let correct = 0;
-    MUNAKAHAT_QUIZ.forEach((q) => {
+    THAHARAH_QUIZ.forEach((q) => {
       if (selectedAnswers[q.id] === q.correctOptionId) {
         correct++;
       }
     });
-    return Math.round((correct / MUNAKAHAT_QUIZ.length) * 100);
+    return Math.round((correct / THAHARAH_QUIZ.length) * 100);
   };
 
   const handleRestart = () => {
@@ -36,13 +36,13 @@ export function MunakahatQuiz() {
       <div className="bg-white rounded-xl border border-stone-200 p-6 shadow-xs">
         <div className="flex items-center gap-2 text-xs font-semibold text-emerald-800 tracking-wide uppercase">
           <HelpCircle className="w-4 h-4" />
-          <span>Evaluasi BAB 19: Fiqih Munakahat</span>
+          <span>Evaluasi BAB 1: Fiqih Thaharah</span>
         </div>
         <h1 className="text-2xl font-bold text-stone-900 font-serif mt-1">
-          Latihan Soal & Studi Kasus Pernikahan
+          Latihan Soal & Kasus Bersuci (Thaharah)
         </h1>
         <p className="text-stone-600 text-sm mt-1 max-w-2xl leading-relaxed">
-          Uji pemahaman Anda tentang hukum pernikahan, rukun dan syarat sah nikah, keharaman mahram, urutan wali nasab, serta masa iddah.
+          Uji pemahaman Anda seputar pembagian air, kaidah dua qullah, macam-macam najis, rukun wudhu, dan mandi wajib.
         </p>
       </div>
 
@@ -54,14 +54,14 @@ export function MunakahatQuiz() {
           </div>
           <div>
             <span className="text-xs uppercase font-bold tracking-wider text-stone-500">
-              Hasil Latihan Munakahat
+              Hasil Latihan Thaharah
             </span>
             <h2 className="text-3xl font-bold font-serif text-stone-900 mt-1">
               Skor Pemahaman: {calculateScore()}%
             </h2>
             <p className="text-stone-600 text-sm mt-2">
               Benar sebanyak{' '}
-              {MUNAKAHAT_QUIZ.filter((q) => selectedAnswers[q.id] === q.correctOptionId).length} dari {MUNAKAHAT_QUIZ.length} pertanyaan.
+              {THAHARAH_QUIZ.filter((q) => selectedAnswers[q.id] === q.correctOptionId).length} dari {THAHARAH_QUIZ.length} pertanyaan.
             </p>
           </div>
 
@@ -82,17 +82,17 @@ export function MunakahatQuiz() {
           <div>
             <div className="flex items-center justify-between text-xs text-stone-500 mb-2">
               <span>
-                Pertanyaan {currentIdx + 1} dari {MUNAKAHAT_QUIZ.length}
+                Pertanyaan {currentIdx + 1} dari {THAHARAH_QUIZ.length}
               </span>
               <span className="font-semibold text-emerald-800">
-                Fiqih Munakahat (Pernikahan)
+                Fiqih Thaharah (Bersuci)
               </span>
             </div>
             <div className="w-full bg-stone-100 rounded-full h-2 overflow-hidden">
               <div
                 className="bg-emerald-700 h-full transition-all duration-300"
                 style={{
-                  width: `${((currentIdx + 1) / MUNAKAHAT_QUIZ.length) * 100}%`,
+                  width: `${((currentIdx + 1) / THAHARAH_QUIZ.length) * 100}%`,
                 }}
               />
             </div>
@@ -171,7 +171,7 @@ export function MunakahatQuiz() {
               ← Soal Sebelumnya
             </button>
 
-            {currentIdx < MUNAKAHAT_QUIZ.length - 1 ? (
+            {currentIdx < THAHARAH_QUIZ.length - 1 ? (
               <button
                 disabled={!selectedAnswers[activeQuestion.id]}
                 onClick={() => setCurrentIdx((prev) => prev + 1)}
