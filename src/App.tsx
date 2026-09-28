@@ -19,6 +19,12 @@ import { AbadhHaiahGuide } from './components/shalat/AbadhHaiahGuide';
 import { JamakQasharCalculator } from './components/shalat/JamakQasharCalculator';
 import { ShalatQuiz } from './components/shalat/ShalatQuiz';
 
+// BAB 4: Jama'ah, Jum'at & Musafir Components
+import { JamaahOverview } from './components/jamaahJumat/JamaahOverview';
+import { JumatGuide } from './components/jamaahJumat/JumatGuide';
+import { MusafirVehicleGuide } from './components/jamaahJumat/MusafirVehicleGuide';
+import { JamaahJumatQuiz } from './components/jamaahJumat/JamaahJumatQuiz';
+
 // BAB 19: Munakahat Components
 import { MunakahatOverview } from './components/munakahat/MunakahatOverview';
 import { MahramChecker } from './components/munakahat/MahramChecker';
@@ -37,8 +43,8 @@ import { TajhizGuideTab } from './components/TajhizGuideTab';
 import { DeceasedGender, HeirRole } from './types/faraidh';
 
 export default function App() {
-  const [currentChapter, setCurrentChapter] = useState<MainChapter>('shalat');
-  const [activeTab, setActiveTab] = useState<string>('shalat-overview');
+  const [currentChapter, setCurrentChapter] = useState<MainChapter>('jamaah_jumat');
+  const [activeTab, setActiveTab] = useState<string>('jamaah-overview');
   const [calculatorKey, setCalculatorKey] = useState<number>(0);
   const [initialDeceasedGender, setInitialDeceasedGender] = useState<DeceasedGender>('male');
   const [initialPresetHeirs, setInitialPresetHeirs] = useState<
@@ -67,6 +73,8 @@ export default function App() {
       setActiveTab('haid-overview');
     } else if (chapter === 'shalat') {
       setActiveTab('shalat-overview');
+    } else if (chapter === 'jamaah_jumat') {
+      setActiveTab('jamaah-overview');
     } else if (chapter === 'munakahat') {
       setActiveTab('overview');
     } else {
@@ -95,7 +103,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 font-sans">
-      {/* 3-zone Header Navigation with 5-Chapter Switcher */}
+      {/* 3-zone Header Navigation with 6-Chapter Switcher */}
       <Header
         currentChapter={currentChapter}
         onSelectChapter={handleSelectChapter}
@@ -140,6 +148,16 @@ export default function App() {
             {activeTab === 'sunnah-sahwi' && <AbadhHaiahGuide />}
             {activeTab === 'jamak-qashar' && <JamakQasharCalculator />}
             {activeTab === 'shalat-quiz' && <ShalatQuiz />}
+          </>
+        )}
+
+        {/* BAB 4: JAMAAH, JUMAT & MUSAFIR */}
+        {currentChapter === 'jamaah_jumat' && (
+          <>
+            {activeTab === 'jamaah-overview' && <JamaahOverview />}
+            {activeTab === 'jumat-guide' && <JumatGuide />}
+            {activeTab === 'musafir-guide' && <MusafirVehicleGuide />}
+            {activeTab === 'jj-quiz' && <JamaahJumatQuiz />}
           </>
         )}
 
@@ -194,6 +212,7 @@ export default function App() {
                 {currentChapter === 'thaharah' && 'BAB 1: Fiqih Thaharah (Bersuci dalam Islam)'}
                 {currentChapter === 'haid' && 'BAB 2: Fiqih Haid, Istihadhah & Nifas'}
                 {currentChapter === 'shalat' && 'BAB 3: Fiqih Shalat (Tiang Agama Islam)'}
+                {currentChapter === 'jamaah_jumat' && 'BAB 4: Fiqih Shalat Jama\'ah, Jum\'at & Musafir'}
                 {currentChapter === 'munakahat' && 'BAB 19: Fiqih Munakahat (Pernikahan dalam Islam)'}
                 {currentChapter === 'faraidh' && 'BAB 21: Fiqih Mawarith (Kewarisan & Hitungan Waris)'}
               </span>
