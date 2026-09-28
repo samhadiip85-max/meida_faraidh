@@ -42,7 +42,7 @@ export function DonutChart({ heirs, netEstate, asalMasalah }: DonutChartProps) {
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-      <div className="relative w-56 h-56 shrink-0 flex items-center justify-center">
+      <div className="relative w-48 h-48 sm:w-56 sm:h-56 shrink-0 flex items-center justify-center">
         <svg viewBox="0 0 200 200" className="w-full h-full -rotate-90">
           {activeHeirs.map((heir, i) => {
             const strokeDasharray = `${(heir.percentage / 100) * circumference} ${circumference}`;
@@ -65,6 +65,7 @@ export function DonutChart({ heirs, netEstate, asalMasalah }: DonutChartProps) {
                 className="transition-all duration-200 cursor-pointer"
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
+                onClick={() => setHoveredIdx(hoveredIdx === i ? null : i)}
               />
             );
           })}

@@ -34,11 +34,16 @@ export function lcmArray(numbers: number[]): number {
 
 // Format Rupiah currency
 export function formatRupiah(amount: number): string {
-  return new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-    maximumFractionDigits: 0,
-  }).format(Math.round(amount));
+  const safe = typeof amount === 'number' && !isNaN(amount) && isFinite(amount) ? Math.round(amount) : 0;
+  try {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      maximumFractionDigits: 0,
+    }).format(safe);
+  } catch {
+    return `Rp ${safe.toLocaleString('id-ID')}`;
+  }
 }
 
 // Default list of all possible heirs in order of fardh & hierarchy

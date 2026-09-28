@@ -422,9 +422,17 @@ export function CalculatorTab({
 
             {/* Subgroup: Pasangan */}
             <div className="space-y-2">
-              <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">
-                Pasangan Hidup
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">
+                  Pasangan Hidup (Hubungan Nikah)
+                </span>
+                <span className="text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  Sebab Nikah Sah (BAB II)
+                </span>
+              </div>
+              <div className="text-[11px] text-stone-500 bg-stone-50/80 p-2 rounded-lg border border-stone-200/60 leading-relaxed">
+                💍 Suami & Istri mewarisi karena akad pernikahan sah (Asbabul Irtsi). Rukun & syarat sah perkawinan diatur dalam <strong>BAB II: Munakahat</strong>.
+              </div>
               {deceasedGender === 'female' && (
                 <div className="flex items-center justify-between p-2 rounded-lg bg-stone-50 border border-stone-100">
                   <div>
