@@ -241,6 +241,16 @@ export default function App() {
           </>
         )}
 
+        {/* BAB 9: QURBAN & AQIQAH */}
+        {currentChapter === 'qurban' && (
+          <>
+            {activeTab === 'qurban-overview' && <QurbanOverview />}
+            {activeTab === 'qurban-calculator' && <QurbanCalculator />}
+            {activeTab === 'aqiqah-guide' && <AqiqahGuide />}
+            {activeTab === 'qurban-quiz' && <QurbanQuiz />}
+          </>
+        )}
+
         {/* BAB 19: MUNAKAHAT (PERNIKAHAN) */}
         {currentChapter === 'munakahat' && (
           <>
@@ -297,6 +307,7 @@ export default function App() {
                 {currentChapter === 'zakat' && 'BAB 6: Fiqih Zakat (Fitrah, Mal & Profesi)'}
                 {currentChapter === 'puasa' && 'BAB 7: Fiqih Puasa (Ramadhan, Fidyah & Puasa Sunnah)'}
                 {currentChapter === 'haji' && 'BAB 8: Fiqih Ibadah Haji & Umrah'}
+                {currentChapter === 'qurban' && 'BAB 9: Fiqih Qurban & Aqiqah'}
                 {currentChapter === 'munakahat' && 'BAB 19: Fiqih Munakahat (Pernikahan dalam Islam)'}
                 {currentChapter === 'faraidh' && 'BAB 21: Fiqih Mawarith (Kewarisan & Hitungan Waris)'}
               </span>
