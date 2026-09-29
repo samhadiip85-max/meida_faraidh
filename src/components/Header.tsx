@@ -1,11 +1,16 @@
 import React from 'react';
-import { BookOpen, HeartHandshake, Droplets, HeartPulse, Clock, Users } from 'lucide-react';
+import { BookOpen, HeartHandshake, Droplets, HeartPulse, Clock, Users, Heart, Coins, Moon, Landmark, Beef } from 'lucide-react';
 
 export type MainChapter =
   | 'thaharah'
   | 'haid'
   | 'shalat'
   | 'jamaah_jumat'
+  | 'jenazah'
+  | 'zakat'
+  | 'puasa'
+  | 'haji'
+  | 'qurban'
   | 'munakahat'
   | 'faraidh';
 
@@ -52,6 +57,41 @@ export function Header({
     { id: 'jj-quiz', label: 'Latihan Soal BAB 4' },
   ];
 
+  const jenazahTabs = [
+    { id: 'jenazah-overview', label: '4 Kewajiban & Kain Kafan' },
+    { id: 'shalat-jenazah', label: 'Simulator 4 Takbir Shalat' },
+    { id: 'kubur-talqin', label: 'Liang Lahat, Talqin & Ziarah' },
+    { id: 'jenazah-quiz', label: 'Latihan Soal BAB 5' },
+  ];
+
+  const zakatTabs = [
+    { id: 'zakat-overview', label: 'Fitrah, Mal & Syarat Nisab' },
+    { id: 'zakat-calculator', label: 'Kalkulator Zakat Multiguna' },
+    { id: 'ashnaf-guide', label: '8 Asnaf & Larangan Zakat' },
+    { id: 'zakat-quiz', label: 'Latihan Soal BAB 6' },
+  ];
+
+  const puasaTabs = [
+    { id: 'puasa-overview', label: 'Rukun, Syarat & Pembatal' },
+    { id: 'fidyah-qadha', label: 'Kalkulator Qadha\' & Fidyah' },
+    { id: 'puasa-sunnah', label: 'Panduan Puasa Sunnah' },
+    { id: 'puasa-quiz', label: 'Latihan Soal BAB 7' },
+  ];
+
+  const hajiTabs = [
+    { id: 'haji-overview', label: 'Rukun, Wajib & Metode' },
+    { id: 'manasik-simulator', label: 'Simulasi Hari Demi Hari' },
+    { id: 'larangan-dam', label: 'Larangan Ihram & Dam' },
+    { id: 'haji-quiz', label: 'Latihan Soal BAB 8' },
+  ];
+
+  const qurbanTabs = [
+    { id: 'qurban-overview', label: 'Syarat Hewan & Cacat' },
+    { id: 'qurban-calculator', label: 'Kalkulator & Patungan Sapi' },
+    { id: 'aqiqah-guide', label: 'Panduan Aqiqah & Cukur' },
+    { id: 'qurban-quiz', label: 'Latihan Soal BAB 9' },
+  ];
+
   const munakahatTabs = [
     { id: 'overview', label: 'Rukun & Hukum Nikah' },
     { id: 'mahram', label: 'Peta Mahram' },
@@ -84,6 +124,21 @@ export function Header({
   } else if (currentChapter === 'jamaah_jumat') {
     currentTabs = jamaahJumatTabs;
     chapterBadge = 'Modul BAB 4 (Jama\'ah & Jum\'at):';
+  } else if (currentChapter === 'jenazah') {
+    currentTabs = jenazahTabs;
+    chapterBadge = 'Modul BAB 5 (Jenazah):';
+  } else if (currentChapter === 'zakat') {
+    currentTabs = zakatTabs;
+    chapterBadge = 'Modul BAB 6 (Zakat):';
+  } else if (currentChapter === 'puasa') {
+    currentTabs = puasaTabs;
+    chapterBadge = 'Modul BAB 7 (Puasa):';
+  } else if (currentChapter === 'haji') {
+    currentTabs = hajiTabs;
+    chapterBadge = 'Modul BAB 8 (Haji & Umrah):';
+  } else if (currentChapter === 'qurban') {
+    currentTabs = qurbanTabs;
+    chapterBadge = 'Modul BAB 9 (Qurban & Aqiqah):';
   } else if (currentChapter === 'munakahat') {
     currentTabs = munakahatTabs;
     chapterBadge = 'Modul BAB 19 (Munakahat):';
@@ -116,7 +171,7 @@ export function Header({
           </button>
         </div>
 
-        {/* BAB Switcher (Chapter Switcher with 6 BABs) */}
+        {/* BAB Switcher (Chapter Switcher with 9 BABs) */}
         <div className="flex items-center p-1 bg-stone-100 rounded-lg border border-stone-200 overflow-x-auto max-w-full">
           {/* BAB 1 */}
           <button
@@ -183,7 +238,92 @@ export function Header({
             }`}
           >
             <Users className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 4: Jama'ah & Jum'at</span>
+            <span>BAB 4: Jama'ah</span>
+          </button>
+
+          {/* BAB 5 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('jenazah');
+              onSelectTab('jenazah-overview');
+            }}
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'jenazah'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <Heart className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 5: Jenazah</span>
+          </button>
+
+          {/* BAB 6 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('zakat');
+              onSelectTab('zakat-overview');
+            }}
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'zakat'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <Coins className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 6: Zakat</span>
+          </button>
+
+          {/* BAB 7 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('puasa');
+              onSelectTab('puasa-overview');
+            }}
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'puasa'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <Moon className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 7: Puasa</span>
+          </button>
+
+          {/* BAB 8 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('haji');
+              onSelectTab('haji-overview');
+            }}
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'haji'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <Landmark className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 8: Haji</span>
+          </button>
+
+          {/* BAB 9 */}
+          <button
+            type="button"
+            onClick={() => {
+              onSelectChapter('qurban');
+              onSelectTab('qurban-overview');
+            }}
+            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+              currentChapter === 'qurban'
+                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            <Beef className="w-3.5 h-3.5 text-emerald-700" />
+            <span>BAB 9: Qurban</span>
           </button>
 
           {/* BAB 19 */}
@@ -241,6 +381,16 @@ export function Header({
                 onSelectTab('shalat-overview');
               } else if (currentChapter === 'jamaah_jumat') {
                 onSelectTab('jamaah-overview');
+              } else if (currentChapter === 'jenazah') {
+                onSelectTab('jenazah-overview');
+              } else if (currentChapter === 'zakat') {
+                onSelectTab('zakat-overview');
+              } else if (currentChapter === 'puasa') {
+                onSelectTab('puasa-overview');
+              } else if (currentChapter === 'haji') {
+                onSelectTab('haji-overview');
+              } else if (currentChapter === 'qurban') {
+                onSelectTab('qurban-overview');
               } else if (currentChapter === 'munakahat') {
                 onSelectTab('overview');
               } else {

@@ -25,6 +25,36 @@ import { JumatGuide } from './components/jamaahJumat/JumatGuide';
 import { MusafirVehicleGuide } from './components/jamaahJumat/MusafirVehicleGuide';
 import { JamaahJumatQuiz } from './components/jamaahJumat/JamaahJumatQuiz';
 
+// BAB 5: Pemulasaran Jenazah Components
+import { JenazahOverview } from './components/jenazah/JenazahOverview';
+import { ShalatJenazahSimulator } from './components/jenazah/ShalatJenazahSimulator';
+import { KuburTalqinGuide } from './components/jenazah/KuburTalqinGuide';
+import { JenazahQuiz } from './components/jenazah/JenazahQuiz';
+
+// BAB 6: Zakat Components
+import { ZakatOverview } from './components/zakat/ZakatOverview';
+import { ZakatCalculator } from './components/zakat/ZakatCalculator';
+import { AshnafGuide } from './components/zakat/AshnafGuide';
+import { ZakatQuiz } from './components/zakat/ZakatQuiz';
+
+// BAB 7: Puasa Components
+import { PuasaOverview } from './components/puasa/PuasaOverview';
+import { FidyahQadhaCalculator } from './components/puasa/FidyahQadhaCalculator';
+import { PuasaSunnahGuide } from './components/puasa/PuasaSunnahGuide';
+import { PuasaQuiz } from './components/puasa/PuasaQuiz';
+
+// BAB 8: Haji & Umrah Components
+import { HajiOverview } from './components/haji/HajiOverview';
+import { ManasikSimulator } from './components/haji/ManasikSimulator';
+import { LaranganDamGuide } from './components/haji/LaranganDamGuide';
+import { HajiQuiz } from './components/haji/HajiQuiz';
+
+// BAB 9: Qurban & Aqiqah Components
+import { QurbanOverview } from './components/qurban/QurbanOverview';
+import { QurbanCalculator } from './components/qurban/QurbanCalculator';
+import { AqiqahGuide } from './components/qurban/AqiqahGuide';
+import { QurbanQuiz } from './components/qurban/QurbanQuiz';
+
 // BAB 19: Munakahat Components
 import { MunakahatOverview } from './components/munakahat/MunakahatOverview';
 import { MahramChecker } from './components/munakahat/MahramChecker';
@@ -43,8 +73,8 @@ import { TajhizGuideTab } from './components/TajhizGuideTab';
 import { DeceasedGender, HeirRole } from './types/faraidh';
 
 export default function App() {
-  const [currentChapter, setCurrentChapter] = useState<MainChapter>('jamaah_jumat');
-  const [activeTab, setActiveTab] = useState<string>('jamaah-overview');
+  const [currentChapter, setCurrentChapter] = useState<MainChapter>('puasa');
+  const [activeTab, setActiveTab] = useState<string>('puasa-overview');
   const [calculatorKey, setCalculatorKey] = useState<number>(0);
   const [initialDeceasedGender, setInitialDeceasedGender] = useState<DeceasedGender>('male');
   const [initialPresetHeirs, setInitialPresetHeirs] = useState<
@@ -75,6 +105,16 @@ export default function App() {
       setActiveTab('shalat-overview');
     } else if (chapter === 'jamaah_jumat') {
       setActiveTab('jamaah-overview');
+    } else if (chapter === 'jenazah') {
+      setActiveTab('jenazah-overview');
+    } else if (chapter === 'zakat') {
+      setActiveTab('zakat-overview');
+    } else if (chapter === 'puasa') {
+      setActiveTab('puasa-overview');
+    } else if (chapter === 'haji') {
+      setActiveTab('haji-overview');
+    } else if (chapter === 'qurban') {
+      setActiveTab('qurban-overview');
     } else if (chapter === 'munakahat') {
       setActiveTab('overview');
     } else {
@@ -103,7 +143,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 font-sans">
-      {/* 3-zone Header Navigation with 6-Chapter Switcher */}
+      {/* 3-zone Header Navigation with 9-Chapter Switcher */}
       <Header
         currentChapter={currentChapter}
         onSelectChapter={handleSelectChapter}
@@ -161,6 +201,46 @@ export default function App() {
           </>
         )}
 
+        {/* BAB 5: PEMULASARAN JENAZAH */}
+        {currentChapter === 'jenazah' && (
+          <>
+            {activeTab === 'jenazah-overview' && <JenazahOverview />}
+            {activeTab === 'shalat-jenazah' && <ShalatJenazahSimulator />}
+            {activeTab === 'kubur-talqin' && <KuburTalqinGuide />}
+            {activeTab === 'jenazah-quiz' && <JenazahQuiz />}
+          </>
+        )}
+
+        {/* BAB 6: ZAKAT */}
+        {currentChapter === 'zakat' && (
+          <>
+            {activeTab === 'zakat-overview' && <ZakatOverview />}
+            {activeTab === 'zakat-calculator' && <ZakatCalculator />}
+            {activeTab === 'ashnaf-guide' && <AshnafGuide />}
+            {activeTab === 'zakat-quiz' && <ZakatQuiz />}
+          </>
+        )}
+
+        {/* BAB 7: PUASA */}
+        {currentChapter === 'puasa' && (
+          <>
+            {activeTab === 'puasa-overview' && <PuasaOverview />}
+            {activeTab === 'fidyah-qadha' && <FidyahQadhaCalculator />}
+            {activeTab === 'puasa-sunnah' && <PuasaSunnahGuide />}
+            {activeTab === 'puasa-quiz' && <PuasaQuiz />}
+          </>
+        )}
+
+        {/* BAB 8: HAJI & UMRAH */}
+        {currentChapter === 'haji' && (
+          <>
+            {activeTab === 'haji-overview' && <HajiOverview />}
+            {activeTab === 'manasik-simulator' && <ManasikSimulator />}
+            {activeTab === 'larangan-dam' && <LaranganDamGuide />}
+            {activeTab === 'haji-quiz' && <HajiQuiz />}
+          </>
+        )}
+
         {/* BAB 19: MUNAKAHAT (PERNIKAHAN) */}
         {currentChapter === 'munakahat' && (
           <>
@@ -213,6 +293,10 @@ export default function App() {
                 {currentChapter === 'haid' && 'BAB 2: Fiqih Haid, Istihadhah & Nifas'}
                 {currentChapter === 'shalat' && 'BAB 3: Fiqih Shalat (Tiang Agama Islam)'}
                 {currentChapter === 'jamaah_jumat' && 'BAB 4: Fiqih Shalat Jama\'ah, Jum\'at & Musafir'}
+                {currentChapter === 'jenazah' && 'BAB 5: Fiqih Tajhizul Jana\'iz (Pemulasaran Jenazah)'}
+                {currentChapter === 'zakat' && 'BAB 6: Fiqih Zakat (Fitrah, Mal & Profesi)'}
+                {currentChapter === 'puasa' && 'BAB 7: Fiqih Puasa (Ramadhan, Fidyah & Puasa Sunnah)'}
+                {currentChapter === 'haji' && 'BAB 8: Fiqih Ibadah Haji & Umrah'}
                 {currentChapter === 'munakahat' && 'BAB 19: Fiqih Munakahat (Pernikahan dalam Islam)'}
                 {currentChapter === 'faraidh' && 'BAB 21: Fiqih Mawarith (Kewarisan & Hitungan Waris)'}
               </span>
