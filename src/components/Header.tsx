@@ -1,5 +1,12 @@
-import React from 'react';
-import { BookOpen, HeartHandshake, Droplets, HeartPulse, Clock, Users, Heart, Coins, Moon, Landmark, Beef } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  LayoutGrid,
+  Library,
+  Menu,
+  ShieldCheck,
+} from 'lucide-react';
+import { ChapterSelectorModal } from './ChapterSelectorModal';
+import { CHAPTERS_LIST, ChapterMeta } from '../data/chaptersList';
 
 export type MainChapter =
   | 'thaharah'
@@ -11,8 +18,20 @@ export type MainChapter =
   | 'puasa'
   | 'haji'
   | 'qurban'
+  | 'sembelih'
+  | 'milkiyyah'
+  | 'jualbeli'
+  | 'muamalah'
+  | 'hibah_wakaf'
+  | 'riba'
+  | 'jinayat'
+  | 'hudud'
+  | 'peradilan'
   | 'munakahat'
-  | 'faraidh';
+  | 'perceraian'
+  | 'faraidh'
+  | 'wasiat'
+  | 'pustaka';
 
 export interface HeaderProps {
   currentChapter: MainChapter;
@@ -20,6 +39,9 @@ export interface HeaderProps {
   activeTab: string;
   onSelectTab: (tabId: string) => void;
   onResetCalculator?: () => void;
+  onToggleSidebar?: () => void;
+  onOpenUserManagement?: () => void;
+  isUserManagementOpen?: boolean;
 }
 
 export function Header({
@@ -28,406 +50,142 @@ export function Header({
   activeTab,
   onSelectTab,
   onResetCalculator,
+  onToggleSidebar,
+  onOpenUserManagement,
+  isUserManagementOpen,
 }: HeaderProps) {
-  const thaharahTabs = [
-    { id: 'thaharah-overview', label: 'Air & Dua Qullah' },
-    { id: 'najis', label: 'Macam-Macam Najis' },
-    { id: 'wudhu-ghusl', label: 'Wudhu, Mandi & Tayammum' },
-    { id: 'thaharah-quiz', label: 'Latihan Soal BAB 1' },
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalInitialFase, setModalInitialFase] = useState<string>('all');
 
-  const haidTabs = [
-    { id: 'haid-overview', label: 'Haid, Nifas & Warna Darah' },
-    { id: 'blood-simulator', label: 'Kalkulator Siklus Darah' },
-    { id: 'istihadhah', label: 'Pedoman Istihadhah' },
-    { id: 'haid-quiz', label: 'Latihan Soal BAB 2' },
-  ];
-
-  const shalatTabs = [
-    { id: 'shalat-overview', label: 'Syarat, Rukun & Pembatal' },
-    { id: 'sunnah-sahwi', label: 'Sunnah Ab\'adh & Sahwi' },
-    { id: 'jamak-qashar', label: 'Kalkulator Jamak & Qashar' },
-    { id: 'shalat-quiz', label: 'Latihan Soal BAB 3' },
-  ];
-
-  const jamaahJumatTabs = [
-    { id: 'jamaah-overview', label: 'Shalat Jama\'ah & Masbuq' },
-    { id: 'jumat-guide', label: 'Shalat Jum\'at & 5 Khutbah' },
-    { id: 'musafir-guide', label: 'Musafir & Shalat di Kendaraan' },
-    { id: 'jj-quiz', label: 'Latihan Soal BAB 4' },
-  ];
-
-  const jenazahTabs = [
-    { id: 'jenazah-overview', label: '4 Kewajiban & Kain Kafan' },
-    { id: 'shalat-jenazah', label: 'Simulator 4 Takbir Shalat' },
-    { id: 'kubur-talqin', label: 'Liang Lahat, Talqin & Ziarah' },
-    { id: 'jenazah-quiz', label: 'Latihan Soal BAB 5' },
-  ];
-
-  const zakatTabs = [
-    { id: 'zakat-overview', label: 'Fitrah, Mal & Syarat Nisab' },
-    { id: 'zakat-calculator', label: 'Kalkulator Zakat Multiguna' },
-    { id: 'ashnaf-guide', label: '8 Asnaf & Larangan Zakat' },
-    { id: 'zakat-quiz', label: 'Latihan Soal BAB 6' },
-  ];
-
-  const puasaTabs = [
-    { id: 'puasa-overview', label: 'Rukun, Syarat & Pembatal' },
-    { id: 'fidyah-qadha', label: 'Kalkulator Qadha\' & Fidyah' },
-    { id: 'puasa-sunnah', label: 'Panduan Puasa Sunnah' },
-    { id: 'puasa-quiz', label: 'Latihan Soal BAB 7' },
-  ];
-
-  const hajiTabs = [
-    { id: 'haji-overview', label: 'Rukun, Wajib & Metode' },
-    { id: 'manasik-simulator', label: 'Simulasi Hari Demi Hari' },
-    { id: 'larangan-dam', label: 'Larangan Ihram & Dam' },
-    { id: 'haji-quiz', label: 'Latihan Soal BAB 8' },
-  ];
-
-  const qurbanTabs = [
-    { id: 'qurban-overview', label: 'Syarat Hewan & Cacat' },
-    { id: 'qurban-calculator', label: 'Kalkulator & Patungan Sapi' },
-    { id: 'aqiqah-guide', label: 'Panduan Aqiqah & Cukur' },
-    { id: 'qurban-quiz', label: 'Latihan Soal BAB 9' },
-  ];
-
-  const munakahatTabs = [
-    { id: 'overview', label: 'Rukun & Hukum Nikah' },
-    { id: 'mahram', label: 'Peta Mahram' },
-    { id: 'wali', label: 'Urutan Wali & Saksi' },
-    { id: 'iddah', label: 'Kalkulator Iddah' },
-    { id: 'munakahat-quiz', label: 'Latihan Soal BAB 19' },
-  ];
-
-  const faraidhTabs = [
-    { id: 'calculator', label: 'Kalkulator Waris' },
-    { id: 'theory', label: 'Materi Furudh' },
-    { id: 'hijab-tree', label: 'Pohon Hijab' },
-    { id: 'special-cases', label: 'Kasus Khusus' },
-    { id: 'quiz', label: 'Latihan Soal BAB 21' },
-    { id: 'tajhiz', label: 'Panduan Tajhiz' },
-  ];
-
-  let currentTabs = faraidhTabs;
-  let chapterBadge = 'Modul BAB 21 (Faraidh):';
-
-  if (currentChapter === 'thaharah') {
-    currentTabs = thaharahTabs;
-    chapterBadge = 'Modul BAB 1 (Thaharah):';
-  } else if (currentChapter === 'haid') {
-    currentTabs = haidTabs;
-    chapterBadge = 'Modul BAB 2 (Haid & Nifas):';
-  } else if (currentChapter === 'shalat') {
-    currentTabs = shalatTabs;
-    chapterBadge = 'Modul BAB 3 (Shalat):';
-  } else if (currentChapter === 'jamaah_jumat') {
-    currentTabs = jamaahJumatTabs;
-    chapterBadge = 'Modul BAB 4 (Jama\'ah & Jum\'at):';
-  } else if (currentChapter === 'jenazah') {
-    currentTabs = jenazahTabs;
-    chapterBadge = 'Modul BAB 5 (Jenazah):';
-  } else if (currentChapter === 'zakat') {
-    currentTabs = zakatTabs;
-    chapterBadge = 'Modul BAB 6 (Zakat):';
-  } else if (currentChapter === 'puasa') {
-    currentTabs = puasaTabs;
-    chapterBadge = 'Modul BAB 7 (Puasa):';
-  } else if (currentChapter === 'haji') {
-    currentTabs = hajiTabs;
-    chapterBadge = 'Modul BAB 8 (Haji & Umrah):';
-  } else if (currentChapter === 'qurban') {
-    currentTabs = qurbanTabs;
-    chapterBadge = 'Modul BAB 9 (Qurban & Aqiqah):';
-  } else if (currentChapter === 'munakahat') {
-    currentTabs = munakahatTabs;
-    chapterBadge = 'Modul BAB 19 (Munakahat):';
-  }
+  const currentChapterMeta: ChapterMeta =
+    CHAPTERS_LIST.find((c) => c.id === currentChapter) || CHAPTERS_LIST[0];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200">
-      {/* Zone 1: Main top bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
-        {/* Brand Zone */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => {
-              onSelectChapter('thaharah');
-              onSelectTab('thaharah-overview');
-            }}
-            className="text-left group flex items-center gap-2.5 focus:outline-none"
-          >
-            <div className="w-8 h-8 rounded-lg bg-emerald-700 flex items-center justify-center text-white font-serif font-bold text-lg shadow-xs">
-              ف
-            </div>
-            <div>
-              <span className="text-xl font-bold tracking-tight text-stone-900 font-serif">
-                FiqihEdu
-              </span>
-              <span className="hidden sm:inline-block ml-2 text-xs text-stone-500 font-sans">
-                Media Pembelajaran Fiqih Islam
-              </span>
-            </div>
-          </button>
-        </div>
-
-        {/* BAB Switcher (Chapter Switcher with 9 BABs) */}
-        <div className="flex items-center p-1 bg-stone-100 rounded-lg border border-stone-200 overflow-x-auto max-w-full">
-          {/* BAB 1 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('thaharah');
-              onSelectTab('thaharah-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'thaharah'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Droplets className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 1: Thaharah</span>
-          </button>
-
-          {/* BAB 2 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('haid');
-              onSelectTab('haid-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'haid'
-                ? 'bg-white text-rose-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <HeartPulse className="w-3.5 h-3.5 text-rose-700" />
-            <span>BAB 2: Haid</span>
-          </button>
-
-          {/* BAB 3 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('shalat');
-              onSelectTab('shalat-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'shalat'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Clock className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 3: Shalat</span>
-          </button>
-
-          {/* BAB 4 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('jamaah_jumat');
-              onSelectTab('jamaah-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'jamaah_jumat'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Users className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 4: Jama'ah</span>
-          </button>
-
-          {/* BAB 5 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('jenazah');
-              onSelectTab('jenazah-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'jenazah'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Heart className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 5: Jenazah</span>
-          </button>
-
-          {/* BAB 6 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('zakat');
-              onSelectTab('zakat-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'zakat'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Coins className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 6: Zakat</span>
-          </button>
-
-          {/* BAB 7 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('puasa');
-              onSelectTab('puasa-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'puasa'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Moon className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 7: Puasa</span>
-          </button>
-
-          {/* BAB 8 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('haji');
-              onSelectTab('haji-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'haji'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Landmark className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 8: Haji</span>
-          </button>
-
-          {/* BAB 9 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('qurban');
-              onSelectTab('qurban-overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'qurban'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <Beef className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 9: Qurban</span>
-          </button>
-
-          {/* BAB 19 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('munakahat');
-              onSelectTab('overview');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'munakahat'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <HeartHandshake className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 19: Munakahat</span>
-          </button>
-
-          {/* BAB 21 */}
-          <button
-            type="button"
-            onClick={() => {
-              onSelectChapter('faraidh');
-              onSelectTab('calculator');
-            }}
-            className={`px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
-              currentChapter === 'faraidh'
-                ? 'bg-white text-emerald-950 shadow-xs border border-stone-200/60'
-                : 'text-stone-600 hover:text-stone-900'
-            }`}
-          >
-            <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
-            <span>BAB 21: Faraidh</span>
-          </button>
-        </div>
-
-        {/* Action Button */}
-        <div className="hidden sm:flex items-center gap-2">
-          {currentChapter === 'faraidh' && onResetCalculator && (
-            <button
-              onClick={onResetCalculator}
-              className="px-3 py-1.5 text-xs font-medium text-stone-600 hover:text-stone-900 border border-stone-300 rounded-md hover:bg-stone-50 transition-colors whitespace-nowrap"
-            >
-              Reset Data
-            </button>
-          )}
-          <button
-            onClick={() => {
-              if (currentChapter === 'thaharah') {
-                onSelectTab('thaharah-overview');
-              } else if (currentChapter === 'haid') {
-                onSelectTab('haid-overview');
-              } else if (currentChapter === 'shalat') {
-                onSelectTab('shalat-overview');
-              } else if (currentChapter === 'jamaah_jumat') {
-                onSelectTab('jamaah-overview');
-              } else if (currentChapter === 'jenazah') {
-                onSelectTab('jenazah-overview');
-              } else if (currentChapter === 'zakat') {
-                onSelectTab('zakat-overview');
-              } else if (currentChapter === 'puasa') {
-                onSelectTab('puasa-overview');
-              } else if (currentChapter === 'haji') {
-                onSelectTab('haji-overview');
-              } else if (currentChapter === 'qurban') {
-                onSelectTab('qurban-overview');
-              } else if (currentChapter === 'munakahat') {
-                onSelectTab('overview');
-              } else {
-                onSelectTab('calculator');
-              }
-            }}
-            className="px-3.5 py-1.5 text-xs font-medium text-white bg-emerald-700 rounded-md hover:bg-emerald-800 transition-colors whitespace-nowrap shadow-xs"
-          >
-            {currentChapter === 'faraidh' ? 'Hitung Waris' : 'Mulai Belajar'}
-          </button>
-        </div>
-      </div>
-
-      {/* Sub-navigation bar for active chapter */}
-      <div className="bg-stone-50/90 border-t border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center overflow-x-auto py-1.5 gap-1 scrollbar-none">
-          <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider mr-2 shrink-0">
-            {chapterBadge}
-          </span>
-          {currentTabs.map((item) => {
-            const isActive = activeTab === item.id;
-            return (
+    <>
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        {/* Clean Top Navbar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-3">
+          {/* Brand & Sidebar Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {onToggleSidebar && (
               <button
-                key={item.id}
-                onClick={() => onSelectTab(item.id)}
-                className={`px-3 py-1 text-xs font-medium rounded-md whitespace-nowrap shrink-0 transition-colors ${
-                  isActive
-                    ? 'bg-emerald-700 text-white font-semibold shadow-xs'
-                    : 'text-stone-700 hover:bg-stone-200/70 hover:text-stone-900'
-                }`}
+                type="button"
+                onClick={onToggleSidebar}
+                className="p-1.5 px-2.5 rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-stone-700 hover:text-stone-900 transition-colors flex items-center gap-2 text-xs font-semibold shadow-2xs"
+                title="Buka / Tutup Menu Materi di Sidebar"
               >
-                {item.label}
+                <Menu className="w-4 h-4 text-emerald-700" />
+                <span className="hidden sm:inline">Menu Materi</span>
               </button>
-            );
-          })}
+            )}
+
+            <button
+              type="button"
+              onClick={() => {
+                onSelectChapter('thaharah');
+                onSelectTab('thaharah-overview');
+              }}
+              className="text-left group flex items-center gap-2.5 focus:outline-none"
+            >
+              <div className="w-8 h-8 rounded-lg bg-emerald-700 flex items-center justify-center text-white font-serif font-bold text-lg shadow-xs group-hover:bg-emerald-800 transition-colors">
+                ف
+              </div>
+              <div>
+                <span className="text-xl font-bold tracking-tight text-stone-900 font-serif">
+                  FiqihMAPK
+                </span>
+                <span className="hidden sm:inline-block ml-2 text-xs text-stone-500 font-sans">
+                  Madrasah Aliyah Program Keagamaan
+                </span>
+              </div>
+            </button>
+          </div>
+
+          {/* Right Action & Utility Buttons */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* "Daftar 22 Bab" Full Catalog Button */}
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-stone-700 hover:text-stone-900 bg-stone-100 hover:bg-stone-200/80 rounded-lg transition-colors border border-stone-200/60"
+            >
+              <LayoutGrid className="w-3.5 h-3.5 text-stone-500" />
+              <span>Daftar 22 Bab</span>
+            </button>
+
+            {/* "Daftar Pustaka" Shortcut */}
+            <button
+              type="button"
+              onClick={() => {
+                onSelectChapter('pustaka');
+                onSelectTab('pustaka-overview');
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors border ${
+                currentChapter === 'pustaka' && !isUserManagementOpen
+                  ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
+                  : 'text-stone-700 hover:text-stone-900 bg-stone-100 hover:bg-stone-200/80 border-stone-200/60'
+              }`}
+              title="Daftar Pustaka & Bibliografi Ilmiah"
+            >
+              <Library className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Daftar Pustaka</span>
+            </button>
+
+            {/* "Manajemen Akses User" Button */}
+            {onOpenUserManagement && (
+              <button
+                type="button"
+                onClick={onOpenUserManagement}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-colors border ${
+                  isUserManagementOpen
+                    ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
+                    : 'text-stone-700 hover:text-stone-900 bg-stone-100 hover:bg-stone-200/80 border-stone-200/60'
+                }`}
+                title="Kelola Pengguna & Hak Akses (CRUD)"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+                <span className="hidden sm:inline">Akses User</span>
+              </button>
+            )}
+
+            {currentChapter === 'faraidh' && onResetCalculator && (
+              <button
+                type="button"
+                onClick={onResetCalculator}
+                className="hidden sm:block px-3 py-1.5 text-xs font-medium text-stone-600 hover:text-stone-900 border border-stone-300 rounded-md hover:bg-stone-50 transition-colors whitespace-nowrap"
+              >
+                Reset Data
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => {
+                onSelectTab(currentChapterMeta.defaultTab);
+              }}
+              className="px-3.5 py-1.5 text-xs font-medium text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 transition-colors whitespace-nowrap shadow-xs"
+            >
+              {currentChapter === 'faraidh'
+                ? 'Hitung Waris'
+                : currentChapter === 'wasiat'
+                ? 'Kalkulator Wasiat'
+                : currentChapter === 'pustaka'
+                ? 'Buka Pustaka'
+                : 'Mulai Belajar'}
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Chapter Selector Modal Dialog */}
+      <ChapterSelectorModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        currentChapter={currentChapter}
+        onSelectChapter={onSelectChapter}
+        onSelectTab={onSelectTab}
+        initialFaseFilter={modalInitialFase}
+      />
+    </>
   );
 }

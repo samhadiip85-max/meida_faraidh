@@ -14,131 +14,778 @@ export interface QuizQuestion {
 
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
-    id: 'q1',
-    category: 'Konsep Dasar',
-    level: 'Dasar',
-    question: 'Di antara hak-hak atas harta peninggalan jenazah berikut, manakah urutan pelunasan yang paling tepat sebelum harta dibagikan kepada ahli waris?',
-    options: [
-      { id: 'a', text: 'Wasiat ➔ Hutang ➔ Biaya Pemakaman (Tajhiz) ➔ Bagi Waris' },
-      { id: 'b', text: 'Biaya Pemakaman (Tajhiz) ➔ Hutang ➔ Wasiat (maks 1/3) ➔ Bagi Waris' },
-      { id: 'c', text: 'Bagi Waris ➔ Hutang ➔ Wasiat ➔ Biaya Pemakaman' },
-      { id: 'd', text: 'Hutang ➔ Bagi Waris ➔ Wasiat ➔ Biaya Pemakaman' },
+    "id": "fq_1",
+    "category": "Konsep Dasar",
+    "level": "Dasar",
+    "question": "Di antara hak-hak atas harta tirkah (peninggalan) jenazah berikut, bagaimanakah urutan pelunasan yang paling tepat menurut ijma' jumhur ulama sebelum harta warisan dibagikan kepada ahli waris?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Wasiat ➔ Pelunasan Hutang ➔ Biaya Tajhiz (Pengurusan Jenazah) ➔ Pembagian Waris"
+      },
+      {
+        "id": "b",
+        "text": "Biaya Tajhiz (Pengurusan Jenazah) ➔ Pelunasan Hutang ➔ Pemenuhan Wasiat (maksimal 1/3) ➔ Pembagian Harta Waris"
+      },
+      {
+        "id": "c",
+        "text": "Pembagian Waris ➔ Pelunasan Hutang ➔ Pemenuhan Wasiat ➔ Biaya Tajhiz"
+      },
+      {
+        "id": "d",
+        "text": "Pelunasan Hutang ➔ Pembagian Waris ➔ Pemenuhan Wasiat ➔ Biaya Tajhiz"
+      },
+      {
+        "id": "e",
+        "text": "Pemenuhan Wasiat ➔ Biaya Tajhiz ➔ Pelunasan Hutang ➔ Pembagian Waris"
+      }
     ],
-    correctOptionId: 'b',
-    explanation:
-      'Urutan yang disepakati ulama (Jumhur): Pertama, biaya tajhiz jenazah (kain kafan, pemakaman secukupnya). Kedua, pelunasan hutang (baik hutang kepada Allah seperti zakat/kaffarah maupun kepada manusia). Ketiga, pemenuhan wasiat maksimal sepertiga dari harta sisa. Keempat, pembagian warisan kepada para ahli waris.',
-    dalilReference: 'QS. An-Nisa: 11-12 & Kitab Bidayatul Mujtahid',
+    "correctOptionId": "b",
+    "explanation": "Urutan yang disepakati ulama adalah: 1. Biaya pengurusan jenazah (tajhiz) secukupnya tanpa berlebihan; 2. Pelunasan seluruh hutang (kepada Allah maupun manusia); 3. Penunaian wasiat maksimal sepertiga dari harta sisa setelah hutang; 4. Pembagian sisa harta kepada ahli waris yang berhak.",
+    "dalilReference": "QS. An-Nisa: 11-12 & Kitab Bidayatul Mujtahid karya Ibnu Rusyd."
   },
   {
-    id: 'q2',
-    category: 'Ashabul Furudh',
-    level: 'Dasar',
-    question: 'Berapakah bagian pasti (fardh) bagi seorang suami apabila almarhumah istrinya TIDAK meninggalkan keturunan (anak maupun cucu)?',
-    options: [
-      { id: 'a', text: '1/4 (Seperempat)' },
-      { id: 'b', text: '1/8 (Seperdelapan)' },
-      { id: 'c', text: '1/2 (Setengah)' },
-      { id: 'd', text: 'Seluruh harta sebagai Ashabah' },
+    "id": "fq_2",
+    "category": "Ashabul Furudh",
+    "level": "Dasar",
+    "question": "Berapakah bagian pasti (fardh) bagi seorang suami apabila almarhumah istrinya TIDAK meninggalkan keturunan (anak kandung maupun cucu dari anak laki-laki)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1/4 (Seperempat)"
+      },
+      {
+        "id": "b",
+        "text": "1/8 (Seperdelapan)"
+      },
+      {
+        "id": "c",
+        "text": "1/2 (Setengah dari seluruh harta bersih)"
+      },
+      {
+        "id": "d",
+        "text": "1/3 (Sepertiga)"
+      },
+      {
+        "id": "e",
+        "text": "Seluruh harta sebagai ashabah murni"
+      }
     ],
-    correctOptionId: 'c',
-    explanation:
-      'Suami berhak mendapatkan 1/2 bagian bila istri tidak mempunyai keturunan (anak/cucu). Bila istri memiliki keturunan, bagian suami turun (Hijab Nuqshan) menjadi 1/4.',
-    dalilReference: 'QS. An-Nisa ayat 12: "وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِنْ لَمْ يَكُنْ لَهُنَّ وَلَدٌ"',
+    "correctOptionId": "c",
+    "explanation": "Berdasarkan QS. An-Nisa: 12, suami berhak memperoleh 1/2 bagian jika istri tidak memiliki keturunan (anak atau cucu). Jika istri memiliki keturunan, bagian suami berkurang (hijab nuqshan) menjadi 1/4.",
+    "dalilReference": "QS. An-Nisa: 12: \"Wa lakum nishfu mā taraka azwājukum in lam yakun lahunna walad.\""
   },
   {
-    id: 'q3',
-    category: 'Ashabul Furudh',
-    level: 'Menengah',
-    question: 'Jika seseorang wafat dan meninggalkan 2 orang istri serta memiliki anak, berapakah porsi yang didapatkan oleh masing-masing istri?',
-    options: [
-      { id: 'a', text: 'Masing-masing mendapat 1/8' },
-      { id: 'b', text: 'Bagian 1/8 dibagi rata berdua (masing-masing 1/16)' },
-      { id: 'c', text: 'Masing-masing mendapat 1/4' },
-      { id: 'd', text: 'Bagian 1/4 dibagi rata berdua (masing-masing 1/8)' },
+    "id": "fq_3",
+    "category": "Ashabul Furudh",
+    "level": "Menengah",
+    "question": "Jika seseorang wafat dan meninggalkan 2 orang istri serta memiliki anak, berapakah porsi warisan yang didapatkan oleh masing-masing istri tersebut?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Masing-masing istri mendapat 1/8 bagian secara mandiri"
+      },
+      {
+        "id": "b",
+        "text": "Bagian fardh 1/8 dibagi rata berdua (sehingga masing-masing mendapat 1/16 bagian)"
+      },
+      {
+        "id": "c",
+        "text": "Masing-masing istri mendapat 1/4 bagian"
+      },
+      {
+        "id": "d",
+        "text": "Bagian fardh 1/4 dibagi rata berdua (sehingga masing-masing mendapat 1/8 bagian)"
+      },
+      {
+        "id": "e",
+        "text": "Istri tertua mendapat 1/8 dan istri termuda mendapat 1/16"
+      }
     ],
-    correctOptionId: 'b',
-    explanation:
-      'Bagian fardh istri ketika ada keturunan adalah 1/8 secara jama\'i (kolektif). Berapapun jumlah istri (1 sampai 4 orang), mereka bersekutu membagi rata bagian 1/8 tersebut. Jika ada 2 istri, masing-masing memperoleh separuh dari 1/8, yaitu 1/16.',
-    dalilReference: 'QS. An-Nisa ayat 12: "فَإِنْ كَانَ لَكُمْ وَلَدٌ فَلَهُنَّ الثُّمُنُ مِمَّا تَرَكْتُمْ"',
+    "correctOptionId": "b",
+    "explanation": "Hak fardh istri ketika ada keturunan adalah 1/8 secara kolektif (jama'i). Berapa pun jumlah istri yang sah (1 sampai 4 orang), mereka bersekutu membagi rata bagian 1/8 tersebut. Jika ada dua istri, 1/8 dibagi 2 = 1/16 per orang.",
+    "dalilReference": "QS. An-Nisa: 12: \"Fa in kāna lakum waladun falahunnats-tsumunu mimmā taraktum.\""
   },
   {
-    id: 'q4',
-    category: 'Hijab Waris',
-    level: 'Menengah',
-    question: 'Siapakah yang menyebabkan Saudara Kandung Laki-laki terhalang sama sekali (Mahjub Hirman) dari mendapatkan warisan?',
-    options: [
-      { id: 'a', text: 'Ibu kandung dan Anak Perempuan' },
-      { id: 'b', text: 'Anak Laki-laki atau Ayah kandung' },
-      { id: 'c', text: 'Suami almarhumah dan Saudari Kandung' },
-      { id: 'd', text: 'Paman kandung' },
+    "id": "fq_4",
+    "category": "Hijab Waris",
+    "level": "Menengah",
+    "question": "Siapakah ahli waris utama yang menyebabkan Saudara Kandung Laki-laki terhalang total (Mahjūb Hirmān) dari mendapatkan bagian harta warisan?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ibu kandung dan Anak Perempuan"
+      },
+      {
+        "id": "b",
+        "text": "Anak Laki-laki (atau cucu laki-laki dari anak laki-laki) serta Ayah kandung"
+      },
+      {
+        "id": "c",
+        "text": "Suami almarhumah dan Saudari Kandung"
+      },
+      {
+        "id": "d",
+        "text": "Paman kandung dari pihak ayah"
+      },
+      {
+        "id": "e",
+        "text": "Kakek dari pihak ibu"
+      }
     ],
-    correctOptionId: 'b',
-    explanation:
-      'Saudara kandung laki-laki (kerabat hawasyi) terhalang total (mahjub hirman) oleh dua pihak utama: Ushul mudzakkar (Ayah) dan Furu\' mudzakkar (Anak laki-laki atau cucu laki-laki dari anak laki-laki).',
-    dalilReference: 'Ijma Shahabat & Kaidah Fiqih Faraidh (Al-Aqrabu Yahjubul Ab\'ad)',
+    "correctOptionId": "b",
+    "explanation": "Saudara kandung laki-laki (kerabat hawasyi) terhalang total (mahjub hirman) oleh dua jalur utama: Furu' mudzakkar (anak laki-laki/cucu laki-laki garis laki-laki) dan Ushul mudzakkar (ayah kandung).",
+    "dalilReference": "Ijma' Sahabat & Kaidah Fiqih Faraidh: \"Al-Aqrabu yahjubul ab'ad.\""
   },
   {
-    id: 'q5',
-    category: 'Hitungan Faraidh',
-    level: 'Lanjutan',
-    question: 'Seorang wanita wafat meninggalkan: Suami, 2 Saudari Kandung, dan Ibu. Kasus apakah yang terjadi pada pembagian warisan ini?',
-    options: [
-      { id: 'a', text: 'Kasus Normal (\'Adil)' },
-      { id: 'b', text: 'Kasus \'Aul (Asal Masalah 6 naik menjadi 8)' },
-      { id: 'c', text: 'Kasus Radd (pengembalian sisa ke ibu)' },
-      { id: 'd', text: 'Kasus Gharrawain' },
+    "id": "fq_5",
+    "category": "Hitungan Faraidh",
+    "level": "Lanjutan",
+    "question": "Seorang wanita wafat meninggalkan: Suami, 2 Saudari Kandung, dan Ibu. Kasus penghitungan khusus apakah yang terjadi pada pembagian harta warisan ini?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Kasus Normal ('Adil) tanpa perubahan angka"
+      },
+      {
+        "id": "b",
+        "text": "Kasus 'Aul (Asal Masalah 6 mengalami kenaikan jumlah saham menjadi 8)"
+      },
+      {
+        "id": "c",
+        "text": "Kasus Radd (pengembalian sisa saham kepada ibu)"
+      },
+      {
+        "id": "d",
+        "text": "Kasus Gharrawain (Umariyyatan)"
+      },
+      {
+        "id": "e",
+        "text": "Kasus Musyatarakah (Hajariyyah)"
+      }
     ],
-    correctOptionId: 'b',
-    explanation:
-      'Perhitungannya: Suami mendapat 1/2 (3/6). Dua saudari kandung mendapat 2/3 (4/6). Ibu mendapat 1/6 (karena ada 2 saudara) = 1/6. Total saham = 3 + 4 + 1 = 8 saham! Karena total saham (8) melebihi asal masalah awal (6), terjadi \'AUL. Asal masalah dinaikkan menjadi 8 (Masalah Al-Mabhalah).',
-    dalilReference: 'Ketetapan Khalifah Umar bin Khattab ra.',
+    "correctOptionId": "b",
+    "explanation": "Penghitungan: Suami = 1/2 (3/6), 2 Saudari Kandung = 2/3 (4/6), Ibu = 1/6 (1/6). Total saham = 3 + 4 + 1 = 8 saham! Karena total saham (8) melebihi asal masalah (6), terjadi fenomena 'AUL. Asal masalah 6 dinaikkan menjadi 8, sehingga pembagi waris menjadi perdelapan.",
+    "dalilReference": "Ketetapan Ijma' Sahabat pada masa Khalifah Umar bin Khattab RA."
   },
   {
-    id: 'q6',
-    category: 'Hitungan Faraidh',
-    level: 'Lanjutan',
-    question: 'Pewaris wafat meninggalkan harta bersih Rp 120.000.000. Ahli waris yang ada adalah: Ibu dan 1 Anak Perempuan saja. Berapakah harta yang diterima anak perempuan dengan memperhitungkan Radd?',
-    options: [
-      { id: 'a', text: 'Rp 60.000.000' },
-      { id: 'b', text: 'Rp 80.000.000' },
-      { id: 'c', text: 'Rp 90.000.000' },
-      { id: 'd', text: 'Rp 100.000.000' },
+    "id": "fq_6",
+    "category": "Hitungan Faraidh",
+    "level": "Lanjutan",
+    "question": "Pewaris wafat meninggalkan harta bersih sebesar Rp 120.000.000. Ahli waris yang ditinggalkan HANYA: Ibu kandung dan 1 Anak Perempuan saja. Berapakah nominal harta yang diterima anak perempuan dengan memperhitungkan ketentuan Radd?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rp 60.000.000"
+      },
+      {
+        "id": "b",
+        "text": "Rp 80.000.000"
+      },
+      {
+        "id": "c",
+        "text": "Rp 90.000.000"
+      },
+      {
+        "id": "d",
+        "text": "Rp 100.000.000"
+      },
+      {
+        "id": "e",
+        "text": "Rp 120.000.000"
+      }
     ],
-    correctOptionId: 'c',
-    explanation:
-      'Anak perempuan fardh-nya 1/2 (3/6). Ibu fardh-nya 1/6 (1/6). Total saham = 3 + 1 = 4 saham (sisa 2 tidak ada ashabah). Sisa dikembalikan (Radd) sehingga Asal Masalah disederhanakan menjadi 4. Anak perempuan mendapat 3/4 x Rp 120.000.000 = Rp 90.000.000, dan Ibu mendapat 1/4 x Rp 120.000.000 = Rp 30.000.000.',
-    dalilReference: 'Fatwa Ali bin Abi Thalib & Ibnu Mas\'ud ra. tentang Bab Ar-Radd',
+    "correctOptionId": "c",
+    "explanation": "Anak perempuan fardh-nya 1/2 (3/6). Ibu fardh-nya 1/6 (1/6). Total saham terbagi = 3 + 1 = 4 saham, tersisa 2 saham tanpa ashabah. Menurut mazhab Radd, sisa dikembalikan kepada mereka secara proporsional dengan menyederhanakan asal masalah menjadi 4. Anak perempuan mendapat 3/4 x Rp 120 juta = Rp 90.000.000, Ibu mendapat 1/4 x Rp 120 juta = Rp 30.000.000.",
+    "dalilReference": "Fatwa Khalifah Ali bin Abi Thalib & Abdullah bin Mas'ud RA tentang Bab Ar-Radd."
   },
   {
-    id: 'q7',
-    category: 'Ashabul Furudh',
-    level: 'Menengah',
-    question: 'Apakah yang dimaksud dengan istilah "Ashabah bil Ghair" dalam pembagian warisan?',
-    options: [
-      { id: 'a', text: 'Ahli waris laki-laki yang menarik saudara perempuannya untuk bersama-sama menjadi penerima sisa dengan rasio 2:1' },
-      { id: 'b', text: 'Saudari kandung yang menjadi ashabah karena bersama anak perempuan' },
-      { id: 'c', text: 'Orang yang menerima sisa karena memerdekakan budak' },
-      { id: 'd', text: 'Ahli waris yang mendapat bagian tetap 1/3 sisa' },
+    "id": "fq_7",
+    "category": "Ashabul Furudh",
+    "level": "Menengah",
+    "question": "Apakah definisi yang tepat dari istilah \"Ashabah bil Ghair\" dalam pembagian waris Islam?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ahli waris wanita penerima fardh (1/2 atau 2/3) yang ditarik menjadi penerima sisa (ashabah) oleh saudara laki-lakinya yang sederajat dengan perbandingan 2:1"
+      },
+      {
+        "id": "b",
+        "text": "Saudari kandung perempuan yang menjadi penerima sisa bersama anak perempuan"
+      },
+      {
+        "id": "c",
+        "text": "Orang yang menerima warisan karena memerdekakan budak"
+      },
+      {
+        "id": "d",
+        "text": "Ahli waris yang mendapatkan sepertiga dari sisa harta"
+      },
+      {
+        "id": "e",
+        "text": "Ahli waris laki-laki yang mewarisi seluruh harta sendirian tanpa penghalang"
+      }
     ],
-    correctOptionId: 'a',
-    explanation:
-      'Ashabah bil Ghair adalah ahli waris wanita yang fardh aslinya adalah 1/2 atau 2/3, namun karena ada saudara laki-lakinya yang sederajat, wanita tersebut beralih menjadi ashabah (penerima sisa) dengan ketentuan laki-laki mendapat dua kali bagian perempuan (2:1). Contoh: Anak perempuan bersama anak laki-laki.',
-    dalilReference: 'QS. An-Nisa: 11 ("للذكر مثل حظ الأنثيين")',
+    "correctOptionId": "a",
+    "explanation": "Ashabah bil Ghair adalah ahli waris wanita (anak perempuan, cucu perempuan, saudari kandung, atau saudari seayah) yang asalnya ashabul furudh, namun karena ada saudara laki-laki yang sederajat dengannya, ia beralih menjadi ashabah dengan ketentuan laki-laki mendapat 2 kali bagian perempuan.",
+    "dalilReference": "QS. An-Nisa: 11: \"Yūshīkumullāhu fī aulādikum lidz-dzakari mitslu hazh-zhil untsayain.\""
   },
   {
-    id: 'q8',
-    category: 'Konsep Dasar',
-    level: 'Dasar',
-    question: 'Manakah di antara hal berikut yang BUKAN merupakan penghalang mewarisi (Mani\'ul Irtsi)?',
-    options: [
-      { id: 'a', text: 'Pembunuhan (ahli waris membunuh pewaris)' },
-      { id: 'b', text: 'Perbedaan agama (Muslim dan non-Muslim)' },
-      { id: 'c', text: 'Anak yang masih balita / belum dewasa' },
-      { id: 'd', text: 'Perbudakan (ar-riqq)' },
+    "id": "fq_8",
+    "category": "Konsep Dasar",
+    "level": "Dasar",
+    "question": "Manakah di antara hal berikut yang BUKAN merupakan faktor penghalang hak mewarisi (Māni'ul Irtsi) yang disepakati oleh ulama?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pembunuhan (ahli waris sengaja membunuh pewaris)"
+      },
+      {
+        "id": "b",
+        "text": "Perbedaan agama (ahli waris non-muslim terhadap pewaris muslim atau sebaliknya)"
+      },
+      {
+        "id": "c",
+        "text": "Ahli waris yang masih berusia balita / anak kecil"
+      },
+      {
+        "id": "d",
+        "text": "Perbudakan (ar-riqq)"
+      },
+      {
+        "id": "e",
+        "text": "Murtad keluar dari agama Islam"
+      }
     ],
-    correctOptionId: 'c',
-    explanation:
-      'Dalam Islam, anak kecil (bahkan janin yang lahir hidup) berhak mewarisi secara sah dan penuh. Tiga penghalang waris yang disepakati ulama adalah: 1. Pembunuhan (Al-Qatlu), 2. Perbedaan Agama (Ikhtilaafud Diin), 3. Perbudakan (Ar-Riqq).',
-    dalilReference: 'Hadits: "Laa yarithul qaatilu syai\'an" (HR. Abu Dawud)',
+    "correctOptionId": "c",
+    "explanation": "Anak kecil (bahkan janin yang lahir hidup) berhak mewarisi secara penuh. Tiga faktor penghalang waris yang disepakati adalah: 1. Pembunuhan (Al-Qatl), 2. Perbedaan Agama (Ikhtilafud Din), dan 3. Perbudakan (Ar-Riqq).",
+    "dalilReference": "HR. Abu Dawud no. 4564: \"Lā yaritsul qātilu syai'an\" & Kitab Matan Rahabiyyah."
   },
+  {
+    "id": "fq_9",
+    "category": "Ashabul Furudh",
+    "level": "Dasar",
+    "question": "Berapakah bagian pasti (fardh) bagi seorang Anak Perempuan Tunggal (satu-satunya anak dan tidak memiliki saudara laki-laki)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1/3 (Sepertiga)"
+      },
+      {
+        "id": "b",
+        "text": "1/4 (Seperempat)"
+      },
+      {
+        "id": "c",
+        "text": "1/2 (Setengah dari total harta)"
+      },
+      {
+        "id": "d",
+        "text": "2/3 (Dua pertiga)"
+      },
+      {
+        "id": "e",
+        "text": "Seluruh harta sebagai ashabah"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Al-Qur'an secara tegas menyatakan bahwa apabila anak perempuan hanya seorang diri (tunggal) tanpa anak laki-laki, maka ia berhak memperoleh 1/2 bagian pasti dari harta peninggalan.",
+    "dalilReference": "QS. An-Nisa: 11: \"Wa in kānat wāhidatan falahān-nishf.\""
+  },
+  {
+    "id": "fq_10",
+    "category": "Ashabul Furudh",
+    "level": "Dasar",
+    "question": "Jika pewaris meninggalkan dua orang anak perempuan atau lebih dan tidak memiliki anak laki-laki sama sekali, berapakah bagian yang mereka peroleh bersama?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1/2 bagian dibagi rata"
+      },
+      {
+        "id": "b",
+        "text": "2/3 (Dua pertiga) bagian dibagi rata di antara mereka"
+      },
+      {
+        "id": "c",
+        "text": "3/4 bagian dibagi rata"
+      },
+      {
+        "id": "d",
+        "text": "Masing-masing mendapat 1/2 bagian"
+      },
+      {
+        "id": "e",
+        "text": "Seluruh harta tanpa sisa"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Berdasarkan QS. An-Nisa: 11, jika anak perempuan berjumlah dua orang atau lebih tanpa adanya anak laki-laki, maka bagian fardh mereka adalah 2/3 yang dibagi rata di antara mereka.",
+    "dalilReference": "QS. An-Nisa: 11: \"Fa in kunna nisā'an fauqatsnataini falahunna tsulutsā mā tarak.\""
+  },
+  {
+    "id": "fq_11",
+    "category": "Ashabul Furudh",
+    "level": "Menengah",
+    "question": "Kapan seorang Ayah kandung berhak mewarisi dengan cara \"Fardh sekaligus Ashabah\" (mengambil 1/6 bagian pasti terlebih dahulu, lalu mengambil sisa harta jika ada)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ketika pewaris memiliki anak laki-laki"
+      },
+      {
+        "id": "b",
+        "text": "Ketika pewaris HANYA memiliki keturunan perempuan (anak perempuan atau cucu perempuan) tanpa adanya anak laki-laki"
+      },
+      {
+        "id": "c",
+        "text": "Ketika pewaris tidak memiliki anak sama sekali"
+      },
+      {
+        "id": "d",
+        "text": "Ketika pewaris meninggalkan istri dan ibu saja"
+      },
+      {
+        "id": "e",
+        "text": "Ayah tidak pernah bisa menggabungkan fardh dan ashabah"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Ayah memiliki 3 keadaan: 1. Fardh murni 1/6 jika ada anak laki-laki; 2. Ashabah murni jika tidak ada keturunan sama sekali; 3. Fardh (1/6) + Ashabah (mengambil sisa) jika ada keturunan perempuan saja.",
+    "dalilReference": "Kitab Matan Ar-Rahabiyyah karya Imam Ar-Rahabi."
+  },
+  {
+    "id": "fq_12",
+    "category": "Ashabul Furudh",
+    "level": "Dasar",
+    "question": "Kapan seorang Ibu kandung memperoleh bagian 1/3 (sepertiga) penuh dari seluruh harta peninggalan?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ketika pewaris memiliki banyak anak laki-laki"
+      },
+      {
+        "id": "b",
+        "text": "Ketika pewaris TIDAK memiliki keturunan (anak/cucu) dan TIDAK memiliki dua orang saudara atau lebih"
+      },
+      {
+        "id": "c",
+        "text": "Ketika pewaris memiliki 3 orang saudara perempuan"
+      },
+      {
+        "id": "d",
+        "text": "Dalam semua keadaan ibu selalu mendapat 1/3"
+      },
+      {
+        "id": "e",
+        "text": "Ketika ayah masih hidup"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Ibu mendapat 1/3 penuh jika tidak ada keturunan (walad) dan tidak ada kumpulan saudara (dua orang saudara atau lebih). Jika ada keturunan atau ada dua saudara atau lebih, bagian ibu turun menjadi 1/6.",
+    "dalilReference": "QS. An-Nisa: 11: \"Fa in lam yakun lahū waladun wa waritsahū abawāhu fa li-ummihits-tsuluts.\""
+  },
+  {
+    "id": "fq_13",
+    "category": "Hitungan Faraidh",
+    "level": "Lanjutan",
+    "question": "Dalam kasus \"Gharrawain\" (atau Umariyyatān), pewaris wafat meninggalkan: Suami, Ibu, dan Ayah (tanpa anak). Berapakah bagian yang diputuskan oleh Khalifah Umar bin Khattab RA bagi Ibu?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1/3 dari total seluruh harta peninggalan"
+      },
+      {
+        "id": "b",
+        "text": "1/3 dari SISA HARTA (Tsulutsul Bāqī) setelah diambil bagian suami, sehingga bagian ayah tetap dua kali bagian ibu"
+      },
+      {
+        "id": "c",
+        "text": "1/6 bagian pasti"
+      },
+      {
+        "id": "d",
+        "text": "1/2 bagian pasti"
+      },
+      {
+        "id": "e",
+        "text": "Ibu terhalang total oleh ayah"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Jika ibu diberi 1/3 total harta (2/6) dan suami 1/2 (3/6), maka sisa untuk ayah hanya 1/6 (ibu dapat lebih banyak dari ayah, menyalahi kaidah 2:1). Maka Khalifah Umar memberi ibu 1/3 dari SISA (1/3 dari 1/2 = 1/6), dan ayah mendapat sisa 2/6 (dua kali ibu).",
+    "dalilReference": "Putusan Khalifah Umar bin Khattab, Utsman bin Affan, dan Zaid bin Tsabit RA."
+  },
+  {
+    "id": "fq_14",
+    "category": "Ashabul Furudh",
+    "level": "Menengah",
+    "question": "Apakah yang dimaksud dengan konsep \"Ashabah Ma'al Ghair\" dalam pembagian waris?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Saudara laki-laki yang mewarisi bersama saudara perempuannya"
+      },
+      {
+        "id": "b",
+        "text": "Saudari Perempuan (kandung atau seayah) yang beralih menjadi penerima sisa (ashabah) karena mewarisi BERSAMA anak perempuan atau cucu perempuan pewaris"
+      },
+      {
+        "id": "c",
+        "text": "Orang asing yang diberi bagian warisan"
+      },
+      {
+        "id": "d",
+        "text": "Kakek yang mewarisi bersama nenek"
+      },
+      {
+        "id": "e",
+        "text": "Paman yang mewarisi bersama bibi"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Kaidah faraidh menetapkan: \"Ij'alul akhawāti ma'al banāti 'ashabah\" (Jadikanlah saudari-saudari perempuan bersama anak perempuan sebagai ashabah). Saudari kandung/seayah menjadi penerima sisa ketika ada anak perempuan.",
+    "dalilReference": "HR. Bukhari no. 6736 dari Abdullah bin Mas'ud RA."
+  },
+  {
+    "id": "fq_15",
+    "category": "Hijab Waris",
+    "level": "Menengah",
+    "question": "Manakah enam ahli waris utama yang TIDAK PERNAH terhalang total (tidak pernah gugur / terhijab hirman) oleh siapa pun dalam kondisi apa pun?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Suami, Istri, Ayah, Ibu, Anak Laki-laki, dan Anak Perempuan"
+      },
+      {
+        "id": "b",
+        "text": "Kakek, Nenek, Saudara Kandung, Paman, Anak, dan Istri"
+      },
+      {
+        "id": "c",
+        "text": "Anak Laki-laki, Cucu Laki-laki, Ayah, Ibu, Paman, dan Suami"
+      },
+      {
+        "id": "d",
+        "text": "Suami, Istri, Mertua, Menantu, Anak, dan Saudara"
+      },
+      {
+        "id": "e",
+        "text": "Seluruh ahli waris pasti bisa terhalang"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Enam ahli waris terdekat yang pasti mendapat warisan jika ada dan tidak pernah terhalang total adalah: Suami, Istri, Ayah kandung, Ibu kandung, Anak laki-laki, dan Anak perempuan.",
+    "dalilReference": "Ijma' Fuqaha & Matan Rahabiyyah."
+  },
+  {
+    "id": "fq_16",
+    "category": "Hijab Waris",
+    "level": "Menengah",
+    "question": "Apakah perbedaan hakiki antara \"Hijāb Nuqshān\" dan \"Hijāb Hirmān\" dalam ilmu faraidh?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Hijab Nuqshan dialami oleh pria, sedangkan Hijab Hirman dialami oleh wanita"
+      },
+      {
+        "id": "b",
+        "text": "Hijab Nuqshan adalah pengurangan porsi bagian warisan, sedangkan Hijab Hirman adalah pengguguran hak waris secara total sehingga tidak mendapat warisan sama sekali"
+      },
+      {
+        "id": "c",
+        "text": "Hijab Nuqshan terjadi karena pembunuhan, sedangkan Hijab Hirman karena beda agama"
+      },
+      {
+        "id": "d",
+        "text": "Keduanya bermakna persis sama tanpa perbedaan"
+      },
+      {
+        "id": "e",
+        "text": "Hijab Hirman hanya berlaku untuk cucu angkat"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Hijāb Nuqshān mengurangi porsi hak (seperti porsi suami turun dari 1/2 ke 1/4 karena ada anak). Hijāb Hirmān menggugurkan seluruh hak waris ahli waris karena adanya kerabat yang lebih dekat (seperti kakek terhalang oleh ayah).",
+    "dalilReference": "Kitab Al-Fiqh Al-Islami wa Adillatuhu Jilid 10."
+  },
+  {
+    "id": "fq_17",
+    "category": "Hitungan Faraidh",
+    "level": "Menengah",
+    "question": "Berapakah angka Asal Masalah (KPK penyebut) yang baku digunakan dalam perhitungan pembagian faraidh klasik?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1, 3, 5, 7, 9, 11, dan 13"
+      },
+      {
+        "id": "b",
+        "text": "Tujuh angka: 2, 3, 4, 6, 8, 12, dan 24"
+      },
+      {
+        "id": "c",
+        "text": "10, 20, 30, 40, dan 50"
+      },
+      {
+        "id": "d",
+        "text": "Hanya angka 12 dan 24 saja"
+      },
+      {
+        "id": "e",
+        "text": "Bebas angka berapa pun di atas 100"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Dalam kaidah faraidh, Asal Masalah yang disepakati ada 7 angka: 2, 3, 4, 6, 8, 12, dan 24. Tiga di antaranya dapat mengalami 'Aul (yaitu 6, 12, dan 24).",
+    "dalilReference": "Kitab Bidayatul Mujtahid & Matan Rahabiyyah."
+  },
+  {
+    "id": "fq_18",
+    "category": "Hitungan Faraidh",
+    "level": "Lanjutan",
+    "question": "Asal Masalah manakah yang dapat mengalami fenomena 'Aul (kenaikan jumlah saham) dalam perhitungan faraidh?",
+    "options": [
+      {
+        "id": "a",
+        "text": "2, 4, dan 8"
+      },
+      {
+        "id": "b",
+        "text": "6, 12, dan 24"
+      },
+      {
+        "id": "c",
+        "text": "3, 6, dan 12"
+      },
+      {
+        "id": "d",
+        "text": "8, 12, dan 24"
+      },
+      {
+        "id": "e",
+        "text": "Seluruh tujuh asal masalah"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Hanya tiga Asal Masalah yang dapat mengalami 'Aul: Asal Masalah 6 (naik ke 7, 8, 9, 10); Asal Masalah 12 (naik ke 13, 15, 17); dan Asal Masalah 24 (naik ke 27 / Masalah Al-Bakhiliyyah).",
+    "dalilReference": "Kaidah Matan Rahabiyyah: \"Wal 'aulu yudkhilu tsalaatsatan tanaal: as-sitta wal itsnai 'asyara wal arba'ata wal 'isyrin.\""
+  },
+  {
+    "id": "fq_19",
+    "category": "Konsep Dasar",
+    "level": "Dasar",
+    "question": "Apakah bagian pasti bagi Saudara Laki-laki Seibu (atau Saudari Perempuan Seibu) jika ia hanya seorang diri dan pewaris dalam keadaan Kalālah (tidak punya anak dan tidak punya orang tua)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1/2 (Setengah)"
+      },
+      {
+        "id": "b",
+        "text": "1/6 (Seperenam)"
+      },
+      {
+        "id": "c",
+        "text": "1/3 (Sepertiga)"
+      },
+      {
+        "id": "d",
+        "text": "1/4 (Seperempat)"
+      },
+      {
+        "id": "e",
+        "text": "Sebagai ashabah"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Berdasarkan QS. An-Nisa: 12, saudara atau saudari seibu jika seorang diri berhak memperoleh 1/6 bagian. Jika mereka berjumlah dua orang atau lebih, mereka bersekutu membagi rata bagian 1/3.",
+    "dalilReference": "QS. An-Nisa: 12: \"Wa in kāna rajulun yūratsu kalālatan awimra'atun wa lahū akhun aw ukhtun fa likulli wāhidin minhumās-sudus.\""
+  },
+  {
+    "id": "fq_20",
+    "category": "Ashabul Furudh",
+    "level": "Menengah",
+    "question": "Kapan seorang Nenek (baik dari pihak ibu maupun ayah) berhak mendapatkan warisan dan berapakah porsi bagiannya?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nenek mendapat 1/3 bagian jika tidak ada ayah"
+      },
+      {
+        "id": "b",
+        "text": "Nenek mendapat 1/6 bagian pasti selama tidak ada Ibu kandung (karena nenek terhalang oleh ibu)"
+      },
+      {
+        "id": "c",
+        "text": "Nenek selalu mendapat 1/4 bagian"
+      },
+      {
+        "id": "d",
+        "text": "Nenek mendapat 1/2 bagian jika sendirian"
+      },
+      {
+        "id": "e",
+        "text": "Nenek tidak berhak mewarisi sama sekali"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Nenek (shahihah) mendapat 1/6 bagian (baik satu nenek maupun lebih dibagi rata). Nenek dari jalur ibu maupun ayah gugur (terhijab) jika Ibu kandung masih hidup. Nenek jalur ayah juga gugur jika Ayah masih hidup.",
+    "dalilReference": "HR. Abu Dawud no. 2894 & At-Tirmidzi no. 2101 (Keputusan Khalifah Abu Bakar Ash-Shiddiq RA)."
+  },
+  {
+    "id": "fq_21",
+    "category": "Hitungan Faraidh",
+    "level": "Lanjutan",
+    "question": "Seorang laki-laki wafat meninggalkan: Istri, Ayah, dan 1 Anak Laki-laki. Berapakah rincian bagian masing-masing?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Istri 1/4, Ayah 1/3, Anak laki-laki ashabah"
+      },
+      {
+        "id": "b",
+        "text": "Istri 1/8, Ayah 1/6, Anak laki-laki Ashabah (mengambil sisa harta)"
+      },
+      {
+        "id": "c",
+        "text": "Istri 1/8, Ayah 1/3, Anak laki-laki 1/2"
+      },
+      {
+        "id": "d",
+        "text": "Istri 1/4, Ayah 1/6, Anak laki-laki 1/2"
+      },
+      {
+        "id": "e",
+        "text": "Semua harta dibagi rata bertiga"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Ada keturunan laki-laki (anak): Istri mendapat fardh 1/8 (karena ada anak). Ayah mendapat fardh 1/6 murni (karena ada anak laki-laki). Anak laki-laki menjadi Ashabah binafsihi yang mengambil seluruh sisa harta (Asal Masalah 24: Istri 3, Ayah 4, Anak 17 saham).",
+    "dalilReference": "QS. An-Nisa: 11-12."
+  },
+  {
+    "id": "fq_22",
+    "category": "Konsep Dasar",
+    "level": "Menengah",
+    "question": "Bagaimanakah pembagian warisan antara saudara seibu laki-laki dan saudara seibu perempuan ketika mereka berjumlah lebih dari satu orang menurut QS. An-Nisa ayat 12?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Laki-laki mendapat dua kali bagian perempuan (2:1)"
+      },
+      {
+        "id": "b",
+        "text": "Mereka bersekutu membagi rata bagian 1/3 secara SAMA BESAR antara laki-laki dan perempuan (1:1 tanpa pembedaan gender)"
+      },
+      {
+        "id": "c",
+        "text": "Perempuan mendapat lebih banyak daripada laki-laki"
+      },
+      {
+        "id": "d",
+        "text": "Saudara seibu laki-laki menghalangi saudara seibu perempuan"
+      },
+      {
+        "id": "e",
+        "text": "Mereka tidak mendapat bagian sama sekali"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Ini adalah keistimewaan saudara seibu: dalam QS. An-Nisa: 12 disebutkan \"Fahum syurakā'u fits-tsuluts\" (mereka berserikat dalam sepertiga). Ulama sepakat bagian saudara seibu dibagi rata antara laki-laki dan perempuan tanpa menerapkan kaidah 2:1.",
+    "dalilReference": "QS. An-Nisa: 12 & Tafsir Ibnu Katsir."
+  },
+  {
+    "id": "fq_23",
+    "category": "Hitungan Faraidh",
+    "level": "Lanjutan",
+    "question": "Pewaris wafat meninggalkan: Suami, Ibu, dan 1 Saudara Seibu. Berapakah Asal Masalahnya dan apakah ada sisa harta?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asal Masalah 6: Suami 3, Ibu 2, Saudara seibu 1 (Total 6 saham, pas tanpa sisa dan tanpa 'aul)"
+      },
+      {
+        "id": "b",
+        "text": "Asal Masalah 12: Suami 6, Ibu 4, Saudara seibu 2"
+      },
+      {
+        "id": "c",
+        "text": "Asal Masalah 8 mengalami 'aul"
+      },
+      {
+        "id": "d",
+        "text": "Asal Masalah 4 mengalami radd"
+      },
+      {
+        "id": "e",
+        "text": "Asal Masalah 24"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Suami = 1/2 (3/6). Ibu = 1/3 (karena tidak ada anak dan saudara hanya satu orang) = 2/6. Saudara seibu = 1/6 (1/6). Total saham: 3 + 2 + 1 = 6 dari Asal Masalah 6. Kasus ini adalah Masalah 'Ādilah (sempurna/pas tanpa sisa dan tanpa 'aul).",
+    "dalilReference": "Kitab Matan Rahabiyyah Bab Al-Hisab."
+  },
+  {
+    "id": "fq_24",
+    "category": "Konsep Dasar",
+    "level": "Dasar",
+    "question": "Apakah hukum mempelajari dan mengajarkan Ilmu Faraidh (Ilmu Waris Islam) menurut penegasan para fuqaha dan wasiat Rasulullah SAW?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fardhu 'Ain bagi setiap muslim secara individu"
+      },
+      {
+        "id": "b",
+        "text": "Fardhu Kifāyah bagi umat Islam, dan merupakan ilmu pertama yang diwasiatkan Nabi SAW karena akan pertama kali dicabut/dilupakan"
+      },
+      {
+        "id": "c",
+        "text": "Sunnah biasa seperti ilmu sejarah"
+      },
+      {
+        "id": "d",
+        "text": "Mubah bagi yang menyukai matematika"
+      },
+      {
+        "id": "e",
+        "text": "Makruh dipelajari di masa damai"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Rasulullah SAW bersabda: \"Pelajarilah faraidh dan ajarkanlah kepada manusia, karena sesungguhnya ia adalah separuh ilmu dan ia akan dilupakan, serta ia adalah ilmu yang pertama kali dicabut dari umatku.\"",
+    "dalilReference": "HR. Ibnu Majah no. 2719 & Ad-Daraquthni."
+  },
+  {
+    "id": "fq_25",
+    "category": "Konsep Dasar",
+    "level": "Menengah",
+    "question": "Bolehkah para ahli waris membagi harta warisan secara damai sama rata (takhāruj / ishlaḥ) setelah mengetahui hak pasti faraidh masing-masing?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Haram mutlak dan berdosa besar"
+      },
+      {
+        "id": "b",
+        "text": "Boleh secara syar'i (Akad Takhāruj / Shulh), asalkan seluruh ahli waris telah baligh, berakal, memahami bagian hak syar'i masing-masing, dan merelakannya secara sukarela tanpa paksaan atau intimidasi"
+      },
+      {
+        "id": "c",
+        "text": "Hanya boleh jika disetujui oleh pengadilan militer"
+      },
+      {
+        "id": "d",
+        "text": "Wajib dibagi sama rata di era modern"
+      },
+      {
+        "id": "e",
+        "text": "Batal demi hukum waris"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Akad Takharuj (perdamaian pembagian waris) dibolehkan dengan syarat: hukum faraidh awal wajib dihitung terlebih dahulu agar setiap ahli waris sadar akan hak hakikinya, kemudian atas dasar kerelaan penuh (taradhi) tanpa paksaan mereka bersepakat berdamai.",
+    "dalilReference": "Kaidah Fiqih Shulh fil Mirats & Fatwa Majelis Tarjih / DSN-MUI."
+  }
 ];

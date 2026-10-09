@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { ZakatType } from '../../types/zakat';
 import { Calculator, CheckCircle2, AlertTriangle, ArrowRight, Info, Coins, Wheat, Briefcase, ShoppingBag } from 'lucide-react';
 
-export function ZakatCalculator() {
-  const [activeZakatType, setActiveZakatType] = useState<ZakatType>('fitrah');
+interface ZakatCalculatorProps {
+  initialType?: ZakatType;
+}
+
+export function ZakatCalculator({ initialType = 'emas_tabungan' }: ZakatCalculatorProps = {}) {
+  const [activeZakatType, setActiveZakatType] = useState<ZakatType>(initialType);
 
   // Shared Gold Price state (default: Rp 1.300.000 / gram)
   const [goldPricePerGram, setGoldPricePerGram] = useState<number>(1300000);

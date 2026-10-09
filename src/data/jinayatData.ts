@@ -1,0 +1,111 @@
+import { PembunuhanDetail, DiyatOrganItem, JinayatQuizQuestion } from '../types/jinayat';
+
+export const PEMBUNUHAN_LIST: PembunuhanDetail[] = [
+  {
+    id: 'amd',
+    name: '1. Pembunuhan Sengaja (Qatl \'Amd)',
+    nameArabic: 'قَتْلُ العَمْد',
+    definition: 'Perbuatan seseorang yang dengan sengaja dan berencana membunuh orang lain yang terlindungi darahnya (Ma\'shūmud Dam) menggunakan alat atau senjata yang pada umumnya mematikan.',
+    alatDigunakan: 'Senjata tajam (pedang, pisau), senjata api (senapan, pistol), racun mematikan, menjatuhkan dari tebing tinggi, mencekik, atau menenggelamkan ke air.',
+    unsurNiat: 'Ada niat dan motif permusuhan secara sengaja (*Qashad*) untuk menghilangkan nyawa korban.',
+    hukumanPokok: 'Hukuman Mati Qishāsh (hukum bunuh setimpal oleh penguasa yang berwenang).',
+    hukumanPengganti: 'Jika ahli waris/wali korban memberi maaf dengan tebusan, maka wajib membayar DIYAT MUGHALLADHAH (100 unta berat) secara TUNAI dari harta pribadi pelaku. Jika dimaafkan murni tanpa tebusan (*\'Afwun majjānī*), pelaku bebas dari qishash dan diyat, namun tetap dijatuhi sanksi hukuman penjara/ta\'zīr oleh hakim.',
+    bebanDiyat: 'Dibiayai 100% dari harta kekayaan pribadi pelaku (bukan beban keluarga \'āqilah) dan dibayar secara tunai seketika.',
+    kaffarah: 'Menurut Mazhab Syafi\'i, pelaku tetap dianjurkan/diwajibkan membayar Kaffarah (puasa 2 bulan berturut-turut) sebagai bentuk taubat kepada Allah SWT.',
+    dalil: 'QS. Al-Baqarah: 178: "Kutiba \'alaikumul qishāshu fīl-qatlā..." & HR. Bukhari no. 6878.',
+  },
+  {
+    id: 'syibhu_amd',
+    name: '2. Pembunuhan Semi-Sengaja (Qatl Syibhu \'Amd)',
+    nameArabic: 'قَتْلُ شِبْهِ العَمْد',
+    definition: 'Perbuatan seseorang yang sengaja memukul atau menganiaya orang lain dengan alat yang pada umumnya TIDAK mematikan, namun pukulan tersebut menyebabkan korban meninggal dunia di luar dugaan.',
+    alatDigunakan: 'Tongkat kecil, rotan, tamparan tangan kosong, cambuk ringan, atau melempar batu kerikil kecil yang biasanya tidak menyebabkan kematian.',
+    unsurNiat: 'Ada niat memukul/menganiaya korban, namun TIDAK ADA niat untuk membunuhnya.',
+    hukumanPokok: 'TIDAK BERLAKU QISHASH (karena tidak ada niat membunuh).',
+    hukumanPengganti: 'Wajib membayar DIYAT MUGHALLADHAH (100 ekor unta berat) yang dibebankan kepada keluarga pihak ayah (*\'Āqilah*) dan boleh diangsur selama 3 tahun.',
+    bebanDiyat: 'Ditanggung oleh keluarga besar pihak ayah (*\'Āqilah*) pelaku, bukan harta pribadi pelaku sendirian, dengan tempo cicilan maksimal 3 tahun (sepertiga per tahun).',
+    kaffarah: 'WAJIB membayar Kaffarah: memerdekakan budak muslim, atau berpuasa 2 bulan berturut-turut (*Siyāmu syahraini mutatābi\'ain*) tanpa putus.',
+    dalil: 'HR. Abu Dawud no. 4547 & An-Nasa\'i no. 4791: "Ingatlah bahwa pembunuhan semi-sengaja dengan cambuk dan tongkat dendanya 100 unta, empat puluh di antaranya dalam keadaan bunting (khalifah)".',
+  },
+  {
+    id: 'khatha',
+    name: '3. Pembunuhan Tersalah / Tidak Sengaja (Qatl Khatha\')',
+    nameArabic: 'قَتْلُ الخَطَأ',
+    definition: 'Kematian seseorang yang terjadi murni karena kekeliruan atau kecelakaan tanpa ada unsur niat memukul maupun niat membunuh korban.',
+    alatDigunakan: 'Senjata pemburu yang meleset dari hewan buruan lalu mengenai manusia, kecelakaan lalu lintas kendaraan murni tanpa ugal-ugalan, atau menebang pohon yang tumbang menimpa orang lewat.',
+    unsurNiat: 'Sama sekali TIDAK ADA niat menganiaya dan tidak ada niat membunuh.',
+    hukumanPokok: 'TIDAK BERLAKU QISHASH dan pelaku tidak menanggung dosa pembunuhan sengaja di akhirat.',
+    hukumanPengganti: 'Wajib membayar DIYAT MUKHAFFAFAH (100 ekor unta ringan) yang ditanggung oleh keluarga (*\'Āqilah*) diangsur selama 3 tahun.',
+    bebanDiyat: 'Ditanggung oleh keluarga besar pihak ayah (*\'Āqilah*) diangsur selama 3 tahun (sepertiga per tahun) untuk meringankan beban pelaku.',
+    kaffarah: 'WAJIB membayar Kaffarah: berpuasa 2 bulan berturut-turut sebagai tebusan keteledoran (*Taubatan minallāh*).',
+    dalil: 'QS. An-Nisā\': 92: "Dan tidak patut bagi seorang mukmin membunuh mukmin yang lain kecuali karena tersalah (tidak sengaja)...".',
+  },
+];
+
+export const DIYAT_ORGAN_LIST: DiyatOrganItem[] = [
+  {
+    id: 'tunggal',
+    organName: 'Organ Tunggal (Lidah, Hidung, Zakar, Tulang Belakang/Akal)',
+    persentaseDiyat: 100,
+    jumlahUnta: 100,
+    keterangan: 'Jika seseorang merusak organ tubuh yang hanya ada satu pada manusia dan menyebabkan fungsinya hilang total, maka wajib membayar 100% Diyat Penuh (100 ekor unta).',
+  },
+  {
+    id: 'pasangan_kedua',
+    organName: 'Kedua Organ Berpasangan (Kedua Mata, Kedua Tangan, Kedua Kaki, Kedua Telinga, Kedua Bibir)',
+    persentaseDiyat: 100,
+    jumlahUnta: 100,
+    keterangan: 'Jika merusak kedua organ berpasangan sekaligus hingga buta atau lumpuh permanen, wajib membayar Diyat Penuh (100 ekor unta).',
+  },
+  {
+    id: 'pasangan_satu',
+    organName: 'Salah Satu Organ Berpasangan (Satu Mata, Satu Tangan, Satu Kaki, Satu Telinga)',
+    persentaseDiyat: 50,
+    jumlahUnta: 50,
+    keterangan: 'Jika merusak satu organ saja dari sepasang organ, maka dendanya adalah separuh diyat penuh (50 ekor unta).',
+  },
+  {
+    id: 'kelopak_mata',
+    organName: 'Satu Kelopak Mata (Manusia memiliki 4 kelopak mata)',
+    persentaseDiyat: 25,
+    jumlahUnta: 25,
+    keterangan: 'Satu kelopak mata bernilai seperempat diyat (25 ekor unta). Keempat kelopak mata bernilai 100 unta.',
+  },
+  {
+    id: 'jari',
+    organName: 'Satu Jari Tangan atau Jari Kaki',
+    persentaseDiyat: 10,
+    jumlahUnta: 10,
+    keterangan: 'Setiap satu jari tangan atau kaki bernilai 10 ekor unta (10% diyat). Seluruh 10 jari bernilai 100 ekor unta.',
+  },
+  {
+    id: 'gigi',
+    organName: 'Satu Gigi yang Tanggal',
+    persentaseDiyat: 5,
+    jumlahUnta: 5,
+    keterangan: 'Mematahkan satu gigi hingga tanggal bernilai 5 ekor unta (5% diyat penuh).',
+  },
+  {
+    id: 'jaifah',
+    organName: 'Luka Ja\'ifah (Luka Tusuk Menembus Rongga Perut atau Dada)',
+    persentaseDiyat: 33.33,
+    jumlahUnta: 33.33,
+    keterangan: 'Luka tembus ke organ dalam rongga tubuh (*Al-Jā\'ifah*) dendanya adalah sepertiga diyat penuh (33 1/3 ekor unta).',
+  },
+  {
+    id: 'ma\'mumah',
+    organName: 'Luka Ma\'mūmah (Luka Kepala yang Merobek Selaput Otak)',
+    persentaseDiyat: 33.33,
+    jumlahUnta: 33.33,
+    keterangan: 'Luka parah di kepala yang menembus kulit hingga menyentuh selaput otak (*Al-Ma\'mūmah / Al-Āmmah*) dendanya adalah sepertiga diyat penuh (33 1/3 ekor unta).',
+  },
+  {
+    id: 'mudhihah',
+    organName: 'Luka Mūdhīhah (Luka Kepala/Wajah yang Menampakkan Tulang Putih)',
+    persentaseDiyat: 5,
+    jumlahUnta: 5,
+    keterangan: 'Luka sayat di bagian kepala atau wajah yang menampakkan tulang putih (*Al-Mūdhīhah*) dendanya adalah 5 ekor unta.',
+  },
+];
+
+export { JINAYAT_QUIZ } from './quizzes/jinayatQuizData';

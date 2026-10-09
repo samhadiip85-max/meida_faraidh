@@ -1,0 +1,729 @@
+import { MunakahatQuizQuestion } from '../munakahatData';
+
+export const MUNAKAHAT_QUIZ: MunakahatQuizQuestion[] = [
+  {
+    "id": "mn_1",
+    "question": "Manakah lima rukun pernikahan yang wajib terpenuhi agar akad nikah sah menurut kesepakatan fuqaha Mazhab Syafi'i?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Calon suami, calon istri, penghulu dinas, resepsi walimah, dan cincin kawin"
+      },
+      {
+        "id": "b",
+        "text": "Calon suami, calon istri, wali nikah, dua orang saksi laki-laki yang adil, dan shighat ijab qabul"
+      },
+      {
+        "id": "c",
+        "text": "Calon suami, calon istri, surat keterangan KUA, mahar tunai, dan saksi tetangga"
+      },
+      {
+        "id": "d",
+        "text": "Calon suami, wali pengantin wanita, saksi dua orang, resepsi walimah, dan mahar"
+      },
+      {
+        "id": "e",
+        "text": "Calon pengantin, orang tua kedua pihak, penghulu adat, mahar, dan janji suci"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Lima rukun nikah yang disepakati dalam Mazhab Syafi'i adalah: 1. Calon mempelai pria (az-zauj), 2. Calon mempelai wanita (az-zaujah), 3. Wali nikah, 4. Dua orang saksi laki-laki yang adil (syahidani 'adlan), dan 5. Shighat (ijab dari wali dan qabul dari pengantin pria).",
+    "dalil": "Kitab Matan Al-Ghayah wat Taqrib karya Qadhi Abu Syuja', Kitab An-Nikah."
+  },
+  {
+    "id": "mn_2",
+    "question": "Berdasarkan sabda Rasulullah SAW: \"Lā nikāha illā biwaliyyin wa syāhiday 'adlin\", apakah konsekuensi hukum pernikahan seorang wanita yang menikah sendiri tanpa kehadiran atau izin wali nikahnya yang sah?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sah dan mengikat selama disaksikan oleh dua orang teman wanitanya"
+      },
+      {
+        "id": "b",
+        "text": "Nikahnya batal (tidak sah secara syar'i) menurut jumhur fuqaha Mazhab Maliki, Syafi'i, dan Hanbali"
+      },
+      {
+        "id": "c",
+        "text": "Makruh tanzih namun status anak tetap sah"
+      },
+      {
+        "id": "d",
+        "text": "Sah asalkan maharnya dibayarkan tunai di hadapan notaris"
+      },
+      {
+        "id": "e",
+        "text": "Wajib mengulang ijab qabul setelah melahirkan anak pertama"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Jumhur fuqaha menetapkan bahwa wali nikah adalah rukun mutlak bagi wanita. Rasulullah SAW bersabda tiga kali: \"Wanita mana saja yang menikah tanpa izin walinya maka nikahnya batil, nikahnya batil, nikahnya batil.\"",
+    "dalil": "HR. Abu Dawud no. 2083, At-Tirmidzi no. 1102, dan Ibnu Majah no. 1879."
+  },
+  {
+    "id": "mn_3",
+    "question": "Dalam urutan hirarki (tertib) wali nasab, siapakah yang berada pada urutan pertama yang paling berhak menjadi wali nikah bagi seorang wanita?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Saudara laki-laki kandung (seayah seibu)"
+      },
+      {
+        "id": "b",
+        "text": "Kakek dari pihak ibu"
+      },
+      {
+        "id": "c",
+        "text": "Ayah kandung (Al-Ab)"
+      },
+      {
+        "id": "d",
+        "text": "Paman kandung dari pihak ayah"
+      },
+      {
+        "id": "e",
+        "text": "Anak laki-laki kandung dari wanita tersebut"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Urutan wali nasab disusun berdasarkan kedekatan garis kekerabatan patrilineal ('ashabah): pertama adalah Ayah kandung, kemudian kakek dari pihak ayah, lalu saudara laki-laki kandung, dst. Wali yang lebih jauh tidak sah menikahkan jika wali yang lebih dekat masih ada dan memenuhi syarat.",
+    "dalil": "Kitab Fathul Qarib Al-Mujib & Nihayatul Muhtaj karya Ar-Ramli."
+  },
+  {
+    "id": "mn_4",
+    "question": "Seorang ayah kandung menolak menikahkan anak perempuannya yang sudah dewasa dengan seorang pemuda yang shalih, berakhlak mulia, dan sekufu (sepadan), semata-mata karena ayah menuntut mahar yang sangat tinggi demi kepentingan gengsi pribadi. Sikap penolakan zalim oleh wali ini dalam fiqih disebut sebagai:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Wali Mujbir"
+      },
+      {
+        "id": "b",
+        "text": "Wali 'Adhal"
+      },
+      {
+        "id": "c",
+        "text": "Wali Fasid"
+      },
+      {
+        "id": "d",
+        "text": "Wali Ghaib"
+      },
+      {
+        "id": "e",
+        "text": "Wali Muhakkam"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Wali 'Adhal adalah tindakan wali yang enggan atau menolak menikahkan wanita di bawah perwaliannya dengan laki-laki yang sekufu dan diridhai oleh wanita tersebut tanpa ada alasan syar'i yang dibenarkan.",
+    "dalil": "QS. Al-Baqarah: 232: \"Maka janganlah kamu (para wali) menghalangi mereka kawin dengan bakal suaminya...\""
+  },
+  {
+    "id": "mn_5",
+    "question": "Jika seorang wali nasab terbukti melakukan perbuatan 'Adhal (menolak menikahkan secara zalim) di hadapan sidang Pengadilan Agama, kepada siapakah hak perwalian pernikahan wanita tersebut dialihkan?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Berpindah kepada saudara laki-laki seayah"
+      },
+      {
+        "id": "b",
+        "text": "Berpindah langsung kepada Wali Hakim (Kepala KUA / Hakim Pengadilan Agama)"
+      },
+      {
+        "id": "c",
+        "text": "Berpindah kepada kakek dari pihak ibu"
+      },
+      {
+        "id": "d",
+        "text": "Wanita tersebut berhak menikahkan dirinya sendiri secara mandiri"
+      },
+      {
+        "id": "e",
+        "text": "Berpindah kepada tetangga tertua di desanya"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Berdasarkan sabda Nabi SAW: \"Sulthan (penguasa/hakim) adalah wali bagi orang yang tidak mempunyai wali\". Jika wali dekat enggan ('adhal), hak perwalian berpindah ke Wali Hakim, bukan ke wali urutan berikutnya menurut pendapat mu'tamad.",
+    "dalil": "HR. Abu Dawud no. 2083, At-Tirmidzi no. 1102: \"Fas-sulthānu waliyyu man lā waliyya lah.\""
+  },
+  {
+    "id": "mn_6",
+    "question": "Apakah perbedaan mendasar antara meminta izin kepada seorang gadis (Bikr) dan seorang janda (Tsayyib) sebelum melangsungkan akad pernikahan menurut sabda Rasulullah SAW?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Gadis tidak perlu dimintai izin, sedangkan janda wajib izin tertulis"
+      },
+      {
+        "id": "b",
+        "text": "Izin seorang janda harus dinyatakan dengan ucapan lisannya yang tegas, sedangkan izin seorang gadis cukup dengan diamnya (karena rasa malu)"
+      },
+      {
+        "id": "c",
+        "text": "Janda boleh dinikahkan secara paksa oleh walinya"
+      },
+      {
+        "id": "d",
+        "text": "Gadis wajib membayar mahar kepada suaminya"
+      },
+      {
+        "id": "e",
+        "text": "Keduanya wajib menandatangani akta perjanjian pra-nikah"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Rasulullah SAW bersabda: \"Janda lebih berhak atas dirinya daripada walinya (harus dengan persetujuan lisannya), sedangkan gadis dimintai izin oleh ayahnya dan izinnya adalah diamnya (sukūtuhā idznuhā).\"",
+    "dalil": "HR. Muslim no. 1421 & Bukhari no. 5136 dari Abdullah bin Abbas RA."
+  },
+  {
+    "id": "mn_7",
+    "question": "Manakah di antara wanita-wanita berikut yang berstatus sebagai \"Mahram Mu'abbad\" (haram dinikahi selamanya) karena sebab pertalian nasab kandung?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Saudara perempuan dari istri (ipar wanita)"
+      },
+      {
+        "id": "b",
+        "text": "Bibi dari pihak ayah (Al-'Ammah) dan bibi dari pihak ibu (Al-Khālah)"
+      },
+      {
+        "id": "c",
+        "text": "Istri dari paman"
+      },
+      {
+        "id": "d",
+        "text": "Anak perempuan dari paman (sepupu perempuan)"
+      },
+      {
+        "id": "e",
+        "text": "Wanita yang sedang menjalani masa iddah talak raj'i"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Wanita yang haram dinikahi selamanya karena nasab (QS. An-Nisa: 23) meliputi: ibu, anak perempuan, saudara perempuan, bibi dari pihak ayah ('ammah), bibi dari pihak ibu (khalah), keponakan dari saudara laki-laki, dan keponakan dari saudara perempuan.",
+    "dalil": "QS. An-Nisa: 23."
+  },
+  {
+    "id": "mn_8",
+    "question": "Seorang laki-laki menikahi seorang janda yang telah memiliki anak perempuan dari suami sebelumnya. Kapan anak tiri perempuan (Rabībah) tersebut menjadi mahram selamanya yang haram dinikahi oleh sang ayah tiri?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Seketika saat ijab qabul nikah dengan ibunya selesai diucapkan"
+      },
+      {
+        "id": "b",
+        "text": "Setelah sang ayah tiri melakukan hubungan intim (Dukhūl / Jima') dengan ibu kandung anak tiri tersebut"
+      },
+      {
+        "id": "c",
+        "text": "Setelah anak tiri berusia 17 tahun"
+      },
+      {
+        "id": "d",
+        "text": "Setelah ayah tiri membiayai sekolah anak tiri tersebut selama 5 tahun"
+      },
+      {
+        "id": "e",
+        "text": "Rabibah tidak pernah menjadi mahram dan halal dinikahi kapan saja"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Kaidah ushul fiqih yang diabadikan dari QS. An-Nisa: 23 menyatakan: \"Al-'aqdu 'alal banāti yuharrimul ummahāt, wad-dukhūlu bil ummahāti yuharrimul banāt\" (Akad atas anak mengharamkan ibunya, dan bersetubuh dengan ibu mengharamkan anak perempuannya/rabibah). Jika baru akad lalu bercerai sebelum jima', anak tiri boleh dinikahi.",
+    "dalil": "QS. An-Nisa: 23: \"...dan anak-anak perempuan dari istrimu (anak tiri) yang dalam pemeliharaanmu dari istri yang telah kamu campuri...\""
+  },
+  {
+    "id": "mn_9",
+    "question": "Berapakah batasan minimal frekuensi susuan yang menjadikan seorang bayi menjadi anak susuan (mahram radha'ah) menurut qaul mu'tamad Mazhab Syafi'i?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cukup 1 kali hisapan ringan"
+      },
+      {
+        "id": "b",
+        "text": "Tiga kali susuan dalam satu hari"
+      },
+      {
+        "id": "c",
+        "text": "Lima kali susuan yang terpisah dan mengenyangkan sebelum bayi berusia 2 tahun hijriyah"
+      },
+      {
+        "id": "d",
+        "text": "Tujuh kali susuan berturut-turut"
+      },
+      {
+        "id": "e",
+        "text": "Sepuluh kali susuan selama masa nifas"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Dalam Mazhab Syafi'i berdasarkan hadits Aisyah RA, syarat kemahraman karena susuan adalah: minimal 5 kali susuan yang terpisah secara nyata, mengenyangkan, dan terjadi sebelum anak genap berumur 2 tahun.",
+    "dalil": "HR. Muslim no. 1452 dari Aisyah radhiyallahu 'anha."
+  },
+  {
+    "id": "mn_10",
+    "question": "Apakah hukum menghimpun (memadu) seorang istri bersama dengan saudara kandung perempuannya (adik/kakak ipar) dalam satu waktu pernikahan yang sama?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Boleh jika kedua wanita tersebut rela dimadu"
+      },
+      {
+        "id": "b",
+        "text": "Haram Mu'aqqat (haram sementara waktu selama istri pertama masih dalam ikatan pernikahan atau masa iddah raj'i)"
+      },
+      {
+        "id": "c",
+        "text": "Sunnah muakkadah jika suami mampu secara finansial"
+      },
+      {
+        "id": "d",
+        "text": "Makruh tanzih"
+      },
+      {
+        "id": "e",
+        "text": "Mubah jika maharnya diberikan dalam jumlah yang sama"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Al-Qur'an secara sharih mengharamkan menghimpun dua orang bersaudara (adik-kakak) dalam satu perkawinan sekaligus. Keharamannya bersifat sementara: jika istri pertama meninggal atau dicerai dan telah selesai iddahnya, maka saudaranya boleh dinikahi.",
+    "dalil": "QS. An-Nisa: 23: \"Wa an tajma'ū bainal ukhtaini illā mā qad salaf...\""
+  },
+  {
+    "id": "mn_11",
+    "question": "Apakah hukum seorang suami memadu istrinya dengan bibi dari pihak ayah ('Ammah) atau bibi dari pihak ibu (Khālah) dari sang istri dalam waktu yang bersamaan?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Boleh asalkan rumah tempat tinggal mereka dipisahkan sejauh 1 km"
+      },
+      {
+        "id": "b",
+        "text": "Haram mutlak berdasarkan larangan tegas dari sabda Rasulullah SAW demi mencegah terputusnya silaturahmi rahim"
+      },
+      {
+        "id": "c",
+        "text": "Halal jika bibi tersebut menyetujui secara lisan"
+      },
+      {
+        "id": "d",
+        "text": "Boleh jika istri pertama mandul"
+      },
+      {
+        "id": "e",
+        "text": "Makruh tetapi akad nikahnya sah"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Rasulullah SAW melarang seorang wanita dimadu dengan bibinya dari pihak ayah maupun bibinya dari pihak ibu, karena hal itu dapat memicu permusuhan dan memutus hubungan kekeluargaan rahim yang diwajibkan untuk disambung.",
+    "dalil": "HR. Bukhari no. 5109 & Muslim no. 1408 dari Abu Hurairah RA."
+  },
+  {
+    "id": "mn_12",
+    "question": "Apakah status hukum pemberian Mahar (Maskawin) dari calon suami kepada calon istrinya dalam pernikahan Islam?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sunnah biasa yang boleh diabaikan tanpa kompensasi"
+      },
+      {
+        "id": "b",
+        "text": "Wajib secara syar'i (kewajiban hukum yang mengikat atas suami), meskipun menyebutkan nominal mahar saat akad bukanlah rukun nikah"
+      },
+      {
+        "id": "c",
+        "text": "Hanya anjuran adat istiadat setempat"
+      },
+      {
+        "id": "d",
+        "text": "Wajib dibayar oleh pihak keluarga wanita kepada pengantin pria"
+      },
+      {
+        "id": "e",
+        "text": "Syarat sah walimah resepsi"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Mahar adalah kewajiban yang dibebankan Allah kepada suami sebagai tanda ketulusan dan penghormatan kepada istri. Jika mahar tidak disebutkan dalam akad (Nikah Tafwīdh), pernikahan tetap sah, namun suami wajib memberikan Mahar Mitsil (mahar yang sepadan).",
+    "dalil": "QS. An-Nisa: 4: \"Dan berikanlah maskawin (mahar) kepada perempuan (yang kamu nikahi) sebagai pemberian yang penuh kerelaan.\""
+  },
+  {
+    "id": "mn_13",
+    "question": "Seorang pemuda hendak menikah namun ia tidak memiliki harta benda berharga sama sekali kecuali selembar kain sarung yang ia pakai. Rasulullah SAW akhirnya menikahkan pemuda tersebut dengan mahar berupa:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Hutang uang 100 dirham"
+      },
+      {
+        "id": "b",
+        "text": "Mengajarkan surat-surat Al-Qur'an yang ia hafal kepada calon istrinya"
+      },
+      {
+        "id": "c",
+        "text": "Bekerja mencangkul ladang kurma selama 1 tahun"
+      },
+      {
+        "id": "d",
+        "text": "Pemberian seekor kambing pinjaman"
+      },
+      {
+        "id": "e",
+        "text": "Pernikahan dibatalkan karena tidak ada emas"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Kisah shahih dalam Shahih Bukhari dan Muslim meriwayatkan Nabi SAW bersabda: \"Zawwajtukahā bimā ma'aka minal Qur'ān\" (Aku nikahkan engkau dengannya dengan mahar hafalan Al-Qur'an yang ada padamu). Ini menunjukkan mahar tidak harus berupa materi, melainkan bisa berupa jasa pengajaran ilmu agama.",
+    "dalil": "HR. Bukhari no. 5030 & Muslim no. 1425 dari Sahl bin Sa'ad As-Sa'idi RA."
+  },
+  {
+    "id": "mn_14",
+    "question": "Apakah anjuran syariat terkait besaran nominal mahar sebagaimana disabdakan oleh Rasulullah SAW: \"Khairun nikāhi aysaruhu\"?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pernikahan yang paling baik adalah yang maharnya paling mahal agar membanggakan keluarga"
+      },
+      {
+        "id": "b",
+        "text": "Pernikahan yang paling berkah dan terbaik adalah yang paling mudah (ringan) maharnya dan tidak menyulitkan calon pengantin"
+      },
+      {
+        "id": "c",
+        "text": "Mahar wajib bernilai minimal 50 gram emas batangan"
+      },
+      {
+        "id": "d",
+        "text": "Mahar harus dinegosiasikan selama minimal 6 bulan"
+      },
+      {
+        "id": "e",
+        "text": "Mahar wajib dipamerkan di atas panggung resepsi"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Islam menganjurkan mempermudah mahar dan mengecam pembebanan mahar yang terlampau tinggi yang menghalangi para pemuda untuk menikah. Mahar yang paling berkah adalah yang paling ringan dan terjangkau bagi suami.",
+    "dalil": "HR. Abu Dawud no. 2117, Al-Hakim no. 2/182, dan Ibnu Hibban."
+  },
+  {
+    "id": "mn_15",
+    "question": "Apakah hukum menyelenggarakan perayaan pesta pernikahan (Walīmatul 'Urs) menurut pandangan mayoritas fuqaha?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fardhu 'Ain bagi seluruh tamu undangan"
+      },
+      {
+        "id": "b",
+        "text": "Sunnah Muakkadah (sangat dianjurkan) walaupun hanya dengan menyembelih seekor kambing"
+      },
+      {
+        "id": "c",
+        "text": "Haram jika diadakan di gedung mewah"
+      },
+      {
+        "id": "d",
+        "text": "Wajib dilaksanakan selama 7 hari 7 malam"
+      },
+      {
+        "id": "e",
+        "text": "Makruh tanzih"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Walimatul 'urs hukumnya Sunnah Muakkadah sebagai sarana i'lanun nikah (pengumuman pernikahan) dan wujud rasa syukur. Nabi bersabda kepada Abdurrahman bin Auf: \"Adakanlah walimah walau hanya dengan menyembelih seekor kambing.\"",
+    "dalil": "HR. Bukhari no. 5155 & Muslim no. 1427."
+  },
+  {
+    "id": "mn_16",
+    "question": "Bagaimanakah hukum menghadiri undangan Walīmatul 'Urs bagi seseorang yang diundang secara khusus (personal) tanpa adanya uzur syar'i dan tidak ada kemungkaran di tempat pesta?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sunnah biasa, boleh datang boleh tidak tanpa konsekuensi"
+      },
+      {
+        "id": "b",
+        "text": "Fardhu 'Ain (Wajib dipenuhi) menurut jumhur fuqaha, dan meninggalkannya tanpa uzur dihukumi bermaksiat kepada Allah dan Rasul-Nya"
+      },
+      {
+        "id": "c",
+        "text": "Makruh jika orang yang mengundang bukan sanak keluarga"
+      },
+      {
+        "id": "d",
+        "text": "Hanya wajib bagi fakir miskin"
+      },
+      {
+        "id": "e",
+        "text": "Mubah tergantung suasana hati"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Memenuhi undangan walimah nikah hukumnya wajib bagi orang yang diundang secara pribadi. Rasulullah SAW bersabda: \"Barangsiapa diundang ke walimah maka hendaklah ia mendatanginya; dan barangsiapa tidak memenuhinya maka ia telah bermaksiat kepada Allah dan Rasul-Nya.\"",
+    "dalil": "HR. Bukhari no. 5173 & Muslim no. 1432 dari Abdullah bin Umar RA."
+  },
+  {
+    "id": "mn_17",
+    "question": "Di antara kriteria kesepadanan (Al-Kafā'ah) dalam pernikahan, manakah aspek kesepadanan yang paling utama dan mutlak ditekankan oleh syariat Islam menurut sabda Nabi SAW?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Kekayaan materi dan kepemilikan mobil mewah"
+      },
+      {
+        "id": "b",
+        "text": "Kedudukan suku dan kasta garis keturunan ningrat"
+      },
+      {
+        "id": "c",
+        "text": "Ketaatan beragama (Ad-Dīn) dan keluhuran akhlak mulia"
+      },
+      {
+        "id": "d",
+        "text": "Tingkat jabatan karier di instansi pemerintahan"
+      },
+      {
+        "id": "e",
+        "text": "Gelar akademis magister atau doktor"
+      }
+    ],
+    "correctOptionId": "c",
+    "explanation": "Nabi SAW berpesan bahwa wanita dinikahi karena empat hal: harta, keturunan, kecantikan, dan agamanya. \"Maka pilihlah yang memiliki komitmen agama, niscaya engkau beruntung\". Kafa'ah hakiki di sisi Allah adalah ketakwaan.",
+    "dalil": "HR. Bukhari no. 5090 & Muslim no. 1466 dari Abu Hurairah RA."
+  },
+  {
+    "id": "mn_18",
+    "question": "Dua orang wali saling menikahkan anak perempuan mereka kepada pihak lain dengan syarat tanpa adanya mahar sama sekali (saling menukarkan anak perempuan sebagai mahar silang). Praktik pernikahan jahiliyah terlarang ini dinamakan:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nikah Mut'ah"
+      },
+      {
+        "id": "b",
+        "text": "Nikah Syighār"
+      },
+      {
+        "id": "c",
+        "text": "Nikah Muhallil"
+      },
+      {
+        "id": "d",
+        "text": "Nikah Sirri"
+      },
+      {
+        "id": "e",
+        "text": "Nikah Ghaib"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Nikah Syighar adalah pernikahan barter di mana seseorang menikahkan putrinya kepada orang lain dengan syarat orang itu menikahkan putrinya kepadanya tanpa ada mahar di antara keduanya. Rasulullah SAW melarangnya secara tegas.",
+    "dalil": "HR. Bukhari no. 5112 & Muslim no. 1415: \"Rasulullah SAW melarang nikah syighar.\""
+  },
+  {
+    "id": "mn_19",
+    "question": "Seseorang melangsungkan akad pernikahan dengan wanita dengan pembatasan jangka waktu tertentu (misalnya kontrak nikah selama 1 bulan atau 1 tahun), yang mana akad otomatis berakhir saat jangka waktu habis tanpa talak. Bentuk pernikahan terlarang ini adalah:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nikah Mut'ah (Nikah Kontrak)"
+      },
+      {
+        "id": "b",
+        "text": "Nikah Fasid"
+      },
+      {
+        "id": "c",
+        "text": "Nikah Syighar"
+      },
+      {
+        "id": "d",
+        "text": "Nikah Tafwidh"
+      },
+      {
+        "id": "e",
+        "text": "Nikah Misyaf"
+      }
+    ],
+    "correctOptionId": "a",
+    "explanation": "Nikah Mut'ah (kawin kontrak berjangka) diharamkan secara permanen hingga hari kiamat oleh Rasulullah SAW pada momentum Fathu Makkah dan Perang Khaibar, karena bertentangan dengan tujuan pernikahan abadi.",
+    "dalil": "HR. Muslim no. 1406 dari Sabrah bin Ma'bad Al-Juhani RA."
+  },
+  {
+    "id": "mn_20",
+    "question": "Seorang wanita yang ditalak tiga (talak ba'in kubra) tidak boleh dinikahi kembali oleh mantan suaminya kecuali setelah ia menikah secara sah dengan laki-laki lain dan berhubungan intim secara nyata. Jika seorang laki-laki sengaja dibayar untuk menikahi wanita tersebut lalu menceraikannya keesokan harinya agar wanita tersebut halal kembali bagi mantan suami pertama, pria bayaran ini dinamakan:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Al-Muqridh"
+      },
+      {
+        "id": "b",
+        "text": "Al-Muhallil (diumpamakan sebagai domba jantan pinjaman yang dilaknat)"
+      },
+      {
+        "id": "c",
+        "text": "Al-Wali Al-Hakim"
+      },
+      {
+        "id": "d",
+        "text": "Al-Mushahir"
+      },
+      {
+        "id": "e",
+        "text": "Al-Khaliq"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Rasulullah SAW melaknat Al-Muhallil (laki-laki yang menikahi wanita hanya untuk menghalalkannya bagi mantan suaminya) dan Al-Muhallal Lahu (mantan suami yang menyuruhnya). Beliau mengibaratkannya sebagai \"At-Tais Al-Musta'ar\" (kambing jantan pinjaman).",
+    "dalil": "HR. Abu Dawud no. 2076, Ibnu Majah no. 1936, dan Tirmidzi no. 1120."
+  },
+  {
+    "id": "mn_21",
+    "question": "Apakah kewajiban nafkah pokok yang wajib dipenuhi oleh seorang suami kepada istrinya yang taat menurut hukum syariat Islam?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Hanya memberikan uang belanja saat menjelang hari raya Idul Fitri"
+      },
+      {
+        "id": "b",
+        "text": "Nafkah lahir (pangan yang layak, pakaian yang menutup aurat, tempat tinggal yang aman/maskan) serta nafkah batin dan pergaulan yang baik (mu'āsyarah bil ma'rūf)"
+      },
+      {
+        "id": "c",
+        "text": "Memberikan perhiasan emas setiap bulan"
+      },
+      {
+        "id": "d",
+        "text": "Membiayai seluruh keluarga besar istri hingga sepupunya"
+      },
+      {
+        "id": "e",
+        "text": "Tidak ada kewajiban nafkah jika istri memiliki penghasilan sendiri"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Suami memikul kewajiban nafkah lahir (makanan pokok, pakaian, tempat tinggal) sesuai kemampuan ekonominya, serta nafkah batin dan bimbingan agama, sebagaimana firman Allah: \"Liyunfiq dzū sa'atin min sa'atih\" (Hendaklah orang yang mampu memberi nafkah menurut kemampuannya).",
+    "dalil": "QS. At-Talaq: 7 & QS. An-Nisa: 19: \"Wa 'āsyirūhunna bil ma'rūf.\""
+  },
+  {
+    "id": "mn_22",
+    "question": "Apakah yang dimaksud dengan istilah \"Nusyūz\" dari seorang istri terhadap suaminya dalam fiqih munakahat?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Istri yang meminta izin menjenguk orang tuanya yang sakit"
+      },
+      {
+        "id": "b",
+        "text": "Pembangkangan atau kedurhakaan istri terhadap perintah suami yang ma'ruf (seperti menolak ajakan ranjang tanpa uzur syar'i atau keluar rumah tanpa izin suami)"
+      },
+      {
+        "id": "c",
+        "text": "Istri yang memasak makanan yang kurang disukai suami"
+      },
+      {
+        "id": "d",
+        "text": "Istri yang memiliki tabungan pribadi lebih banyak dari suami"
+      },
+      {
+        "id": "e",
+        "text": "Istri yang melahirkan anak perempuan"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Nusyūz adalah sikap durhaka dan pembangkangan istri terhadap kewajiban ketaatan yang ma'ruf kepada suami. Konsekuensi nusyūz adalah gugurnya hak nafkah bagi istri selama masa pembangkangan tersebut berlangsung.",
+    "dalil": "QS. An-Nisa: 34: \"Wallātī takhāfūna nusyūzahunna fa'izhūhunna...\""
+  },
+  {
+    "id": "mn_23",
+    "question": "Bagaimanakah tahapan mendidik istri yang melakukan Nusyūz sebagaimana yang digariskan secara tertib dalam Surah An-Nisa ayat 34?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Langsung memukul wajahnya ➔ menceraikannya ➔ mengusirnya"
+      },
+      {
+        "id": "b",
+        "text": "1. Memberi nasihat dengan lemah lembut (fa'izhūhunna) ➔ 2. Memisahkannya dari tempat tidur (wahjurūhunna fil madhāji') ➔ 3. Memukul dengan pukulan edukatif ringan yang tidak melukai dan tidak mengenai wajah (wadhribūhunna)"
+      },
+      {
+        "id": "c",
+        "text": "Menahan makanannya selama 1 minggu ➔ memenjarakannya"
+      },
+      {
+        "id": "d",
+        "text": "Melaporkannya langsung ke polisi tanpa teguran lisan"
+      },
+      {
+        "id": "e",
+        "text": "Mendiamkannya selama 1 tahun penuh"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Al-Qur'an menetapkan tahapan edukatif secara gradual: pertama dinasihati secara baik; jika membangkang, pisah ranjang; jika masih membangkang, dibolehkan memukul dengan pukulan ringan (*dharban ghaira mubarrih*) yang tidak menyakiti fisik dan mutlak haram memukul wajah.",
+    "dalil": "QS. An-Nisa: 34 & HR. Muslim no. 1218 (Khutbah Haji Wada')."
+  },
+  {
+    "id": "mn_24",
+    "question": "Seorang suami berpoligami dengan memiliki dua orang istri. Bagaimanakah ketentuan syariat terkait keadilan yang diwajibkan atas suami tersebut?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Wajib membagi rasa cinta di dalam hati dengan kadar persentase yang sama persis"
+      },
+      {
+        "id": "b",
+        "text": "Wajib bersikap adil dalam hal-hal lahiriah yang berada dalam batas kemampuan manusia (seperti pembagian giliran malam menginap/qasm, nafkah tempat tinggal, dan belanja pangan)"
+      },
+      {
+        "id": "c",
+        "text": "Suami bebas menginap di rumah istri yang lebih muda setiap hari"
+      },
+      {
+        "id": "d",
+        "text": "Keadilan poligami hanya diwajibkan pada saat hari libur akhir pekan"
+      },
+      {
+        "id": "e",
+        "text": "Istri pertama wajib diberi nafkah sepuluh kali lipat"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Keadilan yang diwajibkan adalah keadilan lahiriah (giliran malam dan pemenuhan nafkah materi). Adapun kecondongan cinta hati berada di luar kendali manusia (QS. An-Nisa: 129). Suami yang tidak adil dalam giliran malam diancam dibangkitkan pada hari kiamat dengan tubuh miring sebelah.",
+    "dalil": "HR. Abu Dawud no. 2133 & At-Tirmidzi no. 1140: \"Barangsiapa memiliki dua istri lalu ia condong kepada salah satunya...\""
+  },
+  {
+    "id": "mn_25",
+    "question": "Apakah hakikat tujuan utama pensyariatan pernikahan (Mītsāqan Ghalīzhan) dalam Islam sebagaimana tercantum dalam Surah Ar-Rum ayat 21?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Memperoleh kekayaan warisan pasangan hidup"
+      },
+      {
+        "id": "b",
+        "text": "Mewujudkan ketenteraman jiwa (Sakīnah), jalinan cinta kasih tulus (Mawaddah), dan kasih sayang yang mendalam (Rahmah), serta menjaga kelestarian keturunan manusia yang suci"
+      },
+      {
+        "id": "c",
+        "text": "Menaikkan prestise derajat sosial di lingkungan pekerjaan"
+      },
+      {
+        "id": "d",
+        "text": "Menghindari pembayaran pajak perseorangan"
+      },
+      {
+        "id": "e",
+        "text": "Melaksanakan tradisi pesta adat nenek moyang"
+      }
+    ],
+    "correctOptionId": "b",
+    "explanation": "Al-Qur'an menegaskan bahwa tanda kekuasaan Allah adalah diciptakannya pasangan hidup agar manusia merasa tenteram (litaskunū ilaihā) dan terjalin cinta (mawaddah) serta kasih sayang (rahmah) dalam ikatan suci yang kokoh (mītsāqan ghalīzhā).",
+    "dalil": "QS. Ar-Rum: 21 & QS. An-Nisa: 21."
+  }
+];
