@@ -1,6 +1,10 @@
 node_modules/
 build/
 dist/
+# Bun lockfile dibuat lokal dengan versi bun yang berbeda dari CI Cloudflare (bun 1.2.x),
+# sehingga bun.lock (lockfileVersion 2) menyebabkan error "Unknown lockfile version".
+bun.lock
+bun.lockb
 coverage/
 .DS_Store
 *.log
