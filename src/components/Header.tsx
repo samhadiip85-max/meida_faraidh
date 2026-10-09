@@ -40,6 +40,7 @@ export interface HeaderProps {
   onSelectTab: (tabId: string) => void;
   onResetCalculator?: () => void;
   onToggleSidebar?: () => void;
+  isSidebarOpen?: boolean;
   onOpenUserManagement?: () => void;
   isUserManagementOpen?: boolean;
 }
@@ -51,6 +52,7 @@ export function Header({
   onSelectTab,
   onResetCalculator,
   onToggleSidebar,
+  isSidebarOpen = true,
   onOpenUserManagement,
   isUserManagementOpen,
 }: HeaderProps) {
@@ -71,11 +73,18 @@ export function Header({
               <button
                 type="button"
                 onClick={onToggleSidebar}
-                className="p-1.5 px-2.5 rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 text-stone-700 hover:text-stone-900 transition-colors flex items-center gap-2 text-xs font-semibold shadow-2xs"
-                title="Buka / Tutup Menu Materi di Sidebar"
+                className={`p-2 px-3 rounded-xl border transition-all flex items-center gap-2 text-sm font-bold shadow-2xs ${
+                  isSidebarOpen
+                    ? 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100'
+                    : 'border-stone-300 bg-white text-stone-700 hover:bg-stone-100 hover:text-stone-900'
+                }`}
+                title={isSidebarOpen ? 'Sembunyikan Menu Samping' : 'Tampilkan Menu Samping'}
+                aria-label={isSidebarOpen ? 'Sembunyikan Menu Samping' : 'Tampilkan Menu Samping'}
               >
-                <Menu className="w-4 h-4 text-emerald-700" />
-                <span className="hidden sm:inline">Menu Materi</span>
+                <Menu className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span className="hidden sm:inline font-semibold">
+                  {isSidebarOpen ? 'Tutup Menu' : 'Menu Materi'}
+                </span>
               </button>
             )}
 

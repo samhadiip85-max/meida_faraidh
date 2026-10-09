@@ -31,23 +31,23 @@ export function ChapterBottomNav({
 
   return (
     <div className="mt-12 pt-6 border-t border-stone-200">
-      <div className="bg-stone-50/80 rounded-xl p-4 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-xs text-stone-600">
-          <Compass className="w-4 h-4 text-emerald-700 shrink-0" />
-          <span className="font-semibold text-stone-800">
+      <div className="bg-stone-50/90 rounded-2xl p-4 sm:p-5 border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5 text-sm text-stone-700">
+          <Compass className="w-5 h-5 text-emerald-700 shrink-0" />
+          <span className="font-bold text-stone-900">
             Navigasi Lompat Bab Fiqih:
           </span>
-          <span className="hidden md:inline text-stone-500">
+          <span className="hidden md:inline text-stone-600 text-xs">
             Pindah ke bab kajian lainnya kapan saja
           </span>
         </div>
 
         {/* Clean Dropdown Selector */}
-        <div className="relative w-full sm:w-80">
+        <div className="relative w-full sm:w-96">
           <select
             value={currentChapter}
             onChange={(e) => handleJump(e.target.value as MainChapter)}
-            className="w-full appearance-none pl-3.5 pr-9 py-2 bg-white hover:bg-stone-100/80 border border-stone-300 rounded-lg text-xs font-bold text-stone-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-600 transition-all shadow-2xs"
+            className="w-full appearance-none pl-4 pr-10 py-2.5 bg-white hover:bg-stone-100/90 border border-stone-300 rounded-xl text-sm font-bold text-stone-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-600 transition-all shadow-2xs"
             title="Lompat ke bab lain"
           >
             <optgroup label="FASE E KELAS 10 (Fiqih Ibadah: Bab 1 s.d. 10)">

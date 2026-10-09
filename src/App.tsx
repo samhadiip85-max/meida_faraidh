@@ -273,6 +273,7 @@ export default function App() {
             : undefined
         }
         onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
+        isSidebarOpen={isSidebarOpen}
         onOpenUserManagement={() => {
           setIsUserManagementOpen((prev) => !prev);
           safeScrollToTop();
