@@ -79,11 +79,19 @@ export function Sidebar({
 
   return (
     <>
-      {/* Mobile Backdrop */}
+      {/* Dedicated Mobile Overlay Backdrop */}
       {isOpen && (
         <div
           onClick={onCloseMobile}
-          className="fixed inset-0 z-40 bg-stone-900/40 backdrop-blur-xs md:hidden"
+          role="button"
+          tabIndex={0}
+          aria-label="Tutup menu navigasi"
+          onKeyDown={(e) => {
+            if (e.key === 'Escape' || e.key === 'Enter') {
+              onCloseMobile();
+            }
+          }}
+          className="fixed inset-0 z-40 bg-stone-900/60 backdrop-blur-sm md:hidden transition-opacity duration-300 animate-in fade-in"
         />
       )}
 
@@ -215,6 +223,43 @@ export function Sidebar({
                   ))}
                 </select>
                 <ChevronDown className="w-4 h-4 text-emerald-700 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+
+              {/* List of Module Menu Items for Quick One-Tap Navigation */}
+              <div className="space-y-1.5 pt-1">
+                <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block px-1">
+                  Pilih Sub-Materi:
+                </span>
+                <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
+                  {currentTabs.map((tab, idx) => {
+                    const isActive = tab.id === activeTab;
+                    return (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        onClick={() => {
+                          onSelectTab(tab.id);
+                          onCloseMobile();
+                        }}
+                        className={`w-full text-left px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-2 border ${
+                          isActive
+                            ? 'bg-emerald-700 text-white border-emerald-700 shadow-xs'
+                            : 'bg-stone-50 hover:bg-stone-100/90 text-stone-800 border-stone-200/80 hover:border-stone-300'
+                        }`}
+                      >
+                        <span className="truncate">
+                          <span className={isActive ? 'text-emerald-200 mr-1.5' : 'text-stone-400 mr-1.5'}>
+                            {idx + 1}.
+                          </span>
+                          {tab.label}
+                        </span>
+                        {isActive && (
+                          <span className="w-2 h-2 rounded-full bg-emerald-300 shrink-0" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Prev / Next Stepper Buttons within Chapter */}
